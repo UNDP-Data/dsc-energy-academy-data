@@ -2,6 +2,7 @@ from io import StringIO
 import pandas as pd
 from pathlib import Path
 import json
+import ast
 
 
 def extract_dataset(in_dir):
@@ -85,10 +86,6 @@ def merge_data_metadata(metadata_df, chart_datasets, out_path):
 
     return charts
 
-import pandas as pd
-import json
-from pathlib import Path
-from io import StringIO
 
 
 def read_dataset(dataset_str, chart_id):
@@ -138,12 +135,12 @@ def generate_chart(chart_id, metadata, dataset_str, template_path, output_dir, p
     save_chart_config(output_dir, f"{chart_id}_{suffix}.json", chart_template)
 
 
-def process_charts(charts_data, styling_data, template_folder_path, output_dir):
+def process_charts(charts_data, charts_config, template_folder_path, output_dir):
     for chart_id, chart_info in charts_data.items():
         metadata = chart_info.get("metadata", {})
         dataset = chart_info.get("dataset", "")
         chart_type = metadata.get("Chart Type", "").strip().lower()
-        style = styling_data.get(chart_id, {})
+        style = charts_config.get(chart_id, {})
 
         if chart_type == "bar chart":
             x_col = style.get("x_col_name")
@@ -204,3 +201,48 @@ def process_charts(charts_data, styling_data, template_folder_path, output_dir):
 
         else:
             print(f"Skipping {chart_id}: Unsupported chart type '{chart_type}'")
+
+
+def load_charts_config(filepath):
+    def clean_value(val):
+        """Clean a value by parsing lists and stripping quotes if necessary."""
+        if isinstance(val, str):
+            val = val.strip()
+            # Detect comma-separated values (not quoted as a full string)
+            if ',' in val:
+                return [v.strip() for v in val.split(',')]
+            try:
+                val = ast.literal_eval(val)
+            except (ValueError, SyntaxError):
+                pass
+            if isinstance(val, str) and val.startswith('"') and val.endswith('"'):
+                val = val[1:-1]
+        return val
+
+    # Load the Excel file
+    df = pd.read_excel(filepath)
+
+    # Initialize the dictionary
+    charts_config = {}
+
+    # Process each row
+    for _, row in df.iterrows():
+        chart_code = row['Chart Code']
+        prop = clean_value(row['Property'])
+        val = clean_value(row['Value'])
+        charts_config.setdefault(chart_code, {})[prop] = val
+
+    return charts_config
+
+
+def load_json_file(filepath):
+
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"Error: File not found at {filepath}")
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON: {e}")
+    
+    return None  # Return None if an error occurred

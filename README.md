@@ -70,7 +70,7 @@ python scripts/charts_pipeline.py
 Install with:
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.yml
 ```
 
 ---
