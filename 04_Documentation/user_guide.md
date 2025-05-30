@@ -8,9 +8,9 @@ This guide explains how to use the SEA Chart Pipeline to add and generate charts
 ### Step 1: Add to the Chart Tracker
 
 - Open the **Chart Tracker Excel file** (`Charts Tracker.xlsx`)
-- Go to the sheet for the relevant module
-- Add a new row and fill out all columns (In-depth explanation of columns can be found here: [Chart Tracker](#chart-tracker))
-- Note that only permissible values may be entered
+- Go to the sheet of the relevant module
+- Add a new row and fill out all columns
+- Note that only permissible values may be entered (In-depth explanation of columns can be found here: [Chart Tracker](#chart-tracker))
 
  Reference: [Chart Tracker](#chart-tracker)
 
@@ -34,9 +34,10 @@ This guide explains how to use the SEA Chart Pipeline to add and generate charts
 - In the **Chart Tracker**, fill in the `Dataset Link` column with a hyperlink to the dataset sheet you just added.
 
 
- *[Insert workflow image here]*
+
 
 The diagram illustrates the full end-to-end flow for adding a chart.
+ *[Insert workflow image here]*
 
 ## How to Create a Chart with the pipeline
 
@@ -47,19 +48,19 @@ If it needs to be recreated follow the two options:
 
 ### Option 1: Automatic Chart Creation
 
-
+Here, common chart types can be generated fully automatically after correctly adding the dataset, metadata (**Charts Tracker**) and adding necessary logic for the chart generation (**Charts Config**)
 
 #### Steps:
 
 1. In the **Chart Tracker**:
-   - Set `Ready to use` to `false`
-   - Check if the chart type is supported (see above list)
+   - Set `Category` to `Chart to Recreate`
+   - Check if the chart type is supported [Templates](#templates)
    - If supported, set `Automated processing` to `true`
    - Enter the **exact chart type** corresponding to the [Templates](#templates) in the `Chart type` column
 
 2. Fill in **Chart Config** with required parameters for the selected chart type
     - Open the **Chart Config Excel file** (`SEA Charts Config.xlsx`)
-    - Check within the [Templates](#templates), which additional information of the chart has to be added to Chart config for your selected chart type
+    - Check within the [Chart Config](#chart-config), which additional information of the chart has to be added to Chart config for your selected chart type
     - Add new rows to the chart config with the `Figure ID`, `Property` and `Value`.
 
 3. The chart will be automatically processed and rendered with styling defined by the template.
@@ -75,12 +76,13 @@ If it needs to be recreated follow the two options:
 For **unsupported chart types**:
 
 1. In the **Chart Tracker**:
-   - Set `Ready to use` to `false`
+   - Set `Category` to `Chart to Recreate`
    - Set `Automated processing` to `false`
 
 2. Open the **Chart Prompt Template** ( *link TBD*), and fill in:
    - Metadata
-   - Dataset (inline or linked)
+   - Dataset
+   - Further Instructions
    - Reference chart (Apache E-Chart, etc.)
 
 3. Paste the completed prompt into an LLM (we recommend XY) to generate a chart rendering script.
@@ -88,10 +90,10 @@ For **unsupported chart types**:
  Reference: [Chart Prompt Template](#chart-prompt-template)
 
 
- *[Insert workflow image here]*
+
 
 The diagram illustrates the full end-to-end flow for  generating a chart.
-
+ *[Insert workflow image here]*
 
 
 
@@ -114,7 +116,7 @@ Below is a list of columns and their expected input values:
 | Screenshot    | ...                | Image (JPG/PNG)                      |
 | New Screenshot (if available)   | ...                | Image (JPG/PNG)                     |
 | Category    | ...                | Factor (Chart to Recreate | Ready to Use)                      |
-| Status    | ...                | Factor (Chart to Recreate | Ready to Use)                      |
+| Status    | ...                | ...                     |
 | LEAD  | ...                | Text (String)                      |
 | Source (APA)  | ...                | Text (String)                      |
 | Source Link  | ...                | Text (String) with Hyperlink                      |
@@ -155,8 +157,9 @@ Supports the following chart types:
 |--------|--------------------|
 | Bar Chart       |  ... |
 | Bar Chart (Categories)     | ... | 
-| Pie Chart    | ...l |
- Each chart type expects additional configuration information which needs to be added to the **SEA_Chart_config.xlsx (see below)**
+| Pie Chart    | ... |
+
+ Each chart type expects additional configuration information which needs to be added to the [Chart Config](#charts-config).
 
  **Templates are fixed** and cannot be modified by the user. Styling includes fonts, colors, labels, etc.
 
@@ -178,7 +181,7 @@ The following table lists the obligatory properties for each Chart Type:
 | Bar Chart (Categories)     | category_col, series_cols  | 
 | Pie Chart    | ...           name_col, value_col |
 
-Here is an example how the data should be added for examplary pie chart, bar chart and bar chart categories:
+Here is an example how the data should be stored:
 
 | Chart Code  | Property      | Value                                     |
 |-------------|---------------|-------------------------------------------|
@@ -200,7 +203,7 @@ This template includes:
 - Reference chart
 - Instructions for rendering
 
-
+#TODO
 
 
 
