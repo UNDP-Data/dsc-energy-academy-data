@@ -33,13 +33,6 @@ This guide explains how to use the SEA Chart Pipeline to add and generate charts
 ### Step 3: Link the Dataset
 - In the **Chart Tracker**, fill in the `Dataset Link` column with a hyperlink to the dataset sheet you just added.
 
-### Step 4: Add Chart to Chart Config (Only for automated processing)
-- Open the **Chart Config Excel file** (`SEA Charts Config.xlsx`)
-- Check within the [Templates](#templates), which additional information of the chart has to be added to Chart config for your selected chart type
-- Add new rows to the chart config with the `Figure ID`, `Property` and `Value`.
-
- Reference: [Chart Config](#chart-config)
-
 
  *[Insert workflow image here]*
 
@@ -65,6 +58,9 @@ If it needs to be recreated follow the two options:
    - Enter the **exact chart type** corresponding to the [Templates](#templates) in the `Chart type` column
 
 2. Fill in **Chart Config** with required parameters for the selected chart type
+    - Open the **Chart Config Excel file** (`SEA Charts Config.xlsx`)
+    - Check within the [Templates](#templates), which additional information of the chart has to be added to Chart config for your selected chart type
+    - Add new rows to the chart config with the `Figure ID`, `Property` and `Value`.
 
 3. The chart will be automatically processed and rendered with styling defined by the template.
 
@@ -155,10 +151,11 @@ Templates define the **visual layout** and **styling** for each supported chart 
 - Applied automatically during chart creation
 
 Supports the following chart types:
-- `Bar Chart`
-- `Pie Chart`
-- `Bar Chart (Categories)`
-
+| Chart Type |Description        | 
+|--------|--------------------|
+| Bar Chart       |  ... |
+| Bar Chart (Categories)     | ... | 
+| Pie Chart    | ...l |
  Each chart type expects additional configuration information which needs to be added to the **SEA_Chart_config.xlsx (see below)**
 
  **Templates are fixed** and cannot be modified by the user. Styling includes fonts, colors, labels, etc.
@@ -175,11 +172,11 @@ This file provides **advanced configuration** for charts that need more than bas
 
 The following table lists the obligatory properties for each Chart Type:
 
-| Chart Type | Description |Properties        | 
+| Chart Type |Properties        | 
 |--------|--------------------|
-| Bar Chart       |  |x_col_name, y_col_name |
-| Bar Chart (Categories)   |   | category_col, series_cols  | 
-| Pie Chart    | ...        |    name_col, value_col |
+| Bar Chart       |  x_col_name, y_col_name |
+| Bar Chart (Categories)     | category_col, series_cols  | 
+| Pie Chart    | ...           name_col, value_col |
 
 Here is an example how the data should be added for examplary pie chart, bar chart and bar chart categories:
 
@@ -195,15 +192,14 @@ Here is an example how the data should be added for examplary pie chart, bar cha
 
 ### Chart Prompt Template
 
-For unsupported chart types, a **Chart Prompt Template** is used to create charts via a Large Language Model (LLM), such as ChatGPT.
+For unsupported chart types, a **Chart Prompt Template** is used to create charts via a Large Language Model (LLM), such as XY.
 
 This template includes:
-- Chart metadata (title, type, goal)
-- Dataset (inline or linked)
-- Reference chart (e.g., Apache E-Charts)
+- Chart metadata
+- Dataset 
+- Reference chart
 - Instructions for rendering
 
-📎 Can be used in an LLM-based chart assistant to generate a working visualization script.
 
 
 
