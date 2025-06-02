@@ -148,7 +148,7 @@ Templates define the **visual layout** and **styling** for each supported chart 
 - Predefined for each chart type
 - Applied automatically during chart creation
 
-Supports the following chart types:
+The pipeline currently supports the following chart types:
 
 * Bar Chart Vertical
 * Bar Chart Horizontal

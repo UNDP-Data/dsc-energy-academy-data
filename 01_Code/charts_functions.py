@@ -17,7 +17,7 @@ def extract_dataset(in_dir):
         xls = pd.ExcelFile(excel_file)
         for sheet_name in xls.sheet_names:
             try:
-                df = pd.read_excel(excel_file, sheet_name=sheet_name, header=None)
+                df = pd.read_excel(excel_file, sheet_name=sheet_name, dtype=str)
 
                 # Drop fully empty rows and columns
                 df.dropna(how='all', inplace=True)
@@ -28,7 +28,7 @@ def extract_dataset(in_dir):
                 figure_id = sheet_name.strip()
 
                 # Save to memory as string
-                csv_content = df.to_csv(index=False, header=False).strip()
+                csv_content = df.to_csv(index=False, header=True).strip()
                 charts[figure_id] = csv_content
 
             except Exception as e:
@@ -44,7 +44,7 @@ def extract_metadata(in_path):
     df_list = []
     for sheet in sheet_names:
         try:
-            df = pd.read_excel(in_path, sheet_name=sheet, header=1)
+            df = pd.read_excel(in_path, sheet_name=sheet, header=1, dtype=str)
             df['module'] = sheet
             df_list.append(df)
         except Exception as e:
