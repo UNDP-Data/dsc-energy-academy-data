@@ -1,0 +1,13 @@
+  {
+    "xAxis": {
+    "type": "category",
+    "data": [],
+    "axisLabel": {
+      "interval": 0
+    }
+  },
+  "yAxis": {
+    "type": "value"
+  },
+  "series": []
+}

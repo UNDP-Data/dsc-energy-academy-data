@@ -5,7 +5,7 @@ This guide explains how to use the SEA Chart Pipeline to add and generate charts
 
 ## How to Add a Chart to the pipeline
 
-### Step 1: Add to the Chart Tracker
+### Step 1: Add Metadata to the Chart Tracker
 
 - Open the **Chart Tracker Excel file** (`Charts Tracker.xlsx`)
 - Go to the sheet of the relevant module
@@ -31,19 +31,13 @@ This guide explains how to use the SEA Chart Pipeline to add and generate charts
 
 
 ### Step 3: Link the Dataset
-- In the **Chart Tracker**, fill in the `Dataset Link` column with a hyperlink to the dataset sheet you just added.
+- In the **Chart Tracker**, fill in the `Dataset Link` column with the figure ID and a hyperlink to the dataset sheet you just added.
 
-
-
-
-The diagram illustrates the full end-to-end flow for adding a chart.
- *[Insert workflow image here]*
 
 ## How to Create a Chart with the pipeline
 
-There are **two chart creation options**: automatic via the pipeline, or custom via the LLM prompt.
 As a first step, check whether the chart needs to be recreated or can be used from source. 
-If it needs to be recreated follow the two options:
+If it needs to be recreated follow one of the two options: Automatic via the pipeline, or custom via the LLM prompt.
 
 
 ### Option 1: Automatic Chart Creation
@@ -55,13 +49,13 @@ Here, common chart types can be generated fully automatically after correctly ad
 1. In the **Chart Tracker**:
    - Set `Category` to `Chart to Recreate`
    - Check if the chart type is supported [Templates](#templates)
-   - If supported, set `Automated processing` to `true`
+   - If supported, set `Automated processing` to `Yes`
    - Enter the **exact chart type** corresponding to the [Templates](#templates) in the `Chart type` column
 
 2. Fill in **Chart Config** with required parameters for the selected chart type
     - Open the **Chart Config Excel file** (`SEA Charts Config.xlsx`)
-    - Check within the [Chart Config](#chart-config), which additional information of the chart has to be added to Chart config for your selected chart type
-    - Add new rows to the chart config with the `Figure ID`, `Property` and `Value`.
+    - Check within the [Chart Config](#chart-config), which additional information of the chart has to be added to Chart config for your selected chart type.
+    - Add new rows to the chart config with the `Figure ID`, `Property` and `Column Name`.
 
 3. The chart will be automatically processed and rendered with styling defined by the template.
 
@@ -77,7 +71,7 @@ For **unsupported chart types**:
 
 1. In the **Chart Tracker**:
    - Set `Category` to `Chart to Recreate`
-   - Set `Automated processing` to `false`
+   - Set `Automated processing` to `No`
 
 2. Open the **Chart Prompt Template** ( *link TBD*), and fill in:
    - Metadata
@@ -85,7 +79,7 @@ For **unsupported chart types**:
    - Further Instructions
    - Reference chart (Apache E-Chart, etc.)
 
-3. Paste the completed prompt into an LLM (we recommend XY) to generate a chart rendering script.
+3. Paste the completed prompt into an LLM to generate a chart rendering script.
 
  Reference: [Chart Prompt Template](#chart-prompt-template)
 
@@ -105,32 +99,33 @@ The diagram illustrates the full end-to-end flow for  generating a chart.
 
 The **Chart Tracker** is the central control file that manages chart metadata and status across modules. Each row represents one chart.
 Below is a list of columns and their expected input values:
+| Column              | Description                              | Expected Input Values                      | Obligatory/Optional |
+| ------------------- | ---------------------------------------- | ------------------------------------------ | ------------------- |
+| Chapter             | Number of Chapter                        | Numerical (Integer)                        | Obligatory          |
+| #                   | Serial number within chapter             | Numerical (Integer)                        | Obligatory          |
+| Figure ID           | Serial number to uniquely identify chart | Text (String)                              | Obligatory          |
+| Title               | Title of the figure                      | Text (String)                              | Obligatory          |
+| Subtitle            | Additional description below the title   | Text (String)                              | Optional            |
+| Screenshot          | Original screenshot                      | Image (JPG/PNG)                            | Optional            |
+| New Screenshot      | Updated or annotated screenshot          | Image (JPG/PNG)                            | Optional            |
+| Lead                | Person responsible for this figure       | Text (String)                              | Obligatory            |
+| Source (APA)        | Bibliographic source                     | Text (String)                              | Obligatory            |
+| Footnote            | Footnote within the Chart                  | Text (String)                              | Optional            |
+| Source Link         | Link to original data or reference       | Text (String) with Hyperlink               | Obligatory            |
+| Dataset Link        | Link to dataset location (Excel Sheet)   | Text (String) with Hyperlink               | Obligatory            |
+| Chart Status        | Availability status of chart | Factor (Ready \| Pending)                      | Obligatory          |
+| Dataset Status      | Availability status of the underlying dataset | Factor (Ready \| Pending) | Obligatory          |
+| Category            | Chart classification                     | Factor (Chart to Recreate \| Ready to Use) | Obligatory          |
+| Chart Type          | Type of visualization                    | Factor (Bar Chart \| Pie Chart \| ...)     | Obligatory          |
+| Apache possible     | Can it be created as an Apache e-Chart?   | Category (Yes \| No \| Unsure)                    | Obligatory            |
+| Apache Link         | Link to Apache e-Chart example        | Text (String) with Hyperlink               | Optional            |
+| Automation possible | Can the chart be automated via the charts pipeline?              | Category (Yes \| No \| Unsure)                   | Obligatory            |
+| Notes               | Any extra information                    | Text (String)                              | Optional    
 
-| Column | Description        | Expected Input Values    |
-|--------|--------------------|--------------------------|
-| Chapter      | Number of Capter  | Numerical (Integer) |
-| #      | serial number within chapter  | Numerical (Integer)          |
-| Figure ID    | Serial number to uniquely identify chart                | Text (String)                      |
-| Title    | ...                | Text (String)                     |
-| Subtitle    | ...                | Text (String)                      |
-| Screenshot    | ...                | Image (JPG/PNG)                      |
-| New Screenshot (if available)   | ...                | Image (JPG/PNG)                     |
-| Category    | ...                | Factor (Chart to Recreate | Ready to Use)                      |
-| Status    | ...                | ...                     |
-| LEAD  | ...                | Text (String)                      |
-| Source (APA)  | ...                | Text (String)                      |
-| Source Link  | ...                | Text (String) with Hyperlink                      |
-| Footnote  | ...                | Text (String)                         |
-| Apache possible  | ...                | Boolean (False | True)                     |
-| Automation possible  | ...                | Boolean (False | True)                         |
-| Chart Type  | ...                | Factor (Bar Chart | Pie Chart | ...)                       |
-| Dataset Status  | ...                | Factor (Chart to Recreate | Ready to Use)                     |
-| Dataset Link  | ...                | Text (String) with Hyperlink                       |
-| Apache Link  | ...                | Text (String) with Hyperlink                       |
-| Notes  | ...                | Text (String)                      |
 
+ **Note**: All obligatory columns must be filled out correctly to ensure smooth processing.
 
- **Note**: All columns must be filled out correctly to ensure smooth processing.
+---
 
 ### Datasets
 
@@ -143,6 +138,7 @@ Below is a list of columns and their expected input values:
 
  Improper formatting could cause the pipeline to fail.
 
+---
 
 ###  Templates
 
@@ -153,17 +149,25 @@ Templates define the **visual layout** and **styling** for each supported chart 
 - Applied automatically during chart creation
 
 Supports the following chart types:
-| Chart Type |Description        | 
-|--------|--------------------|
-| Bar Chart       |  ... |
-| Bar Chart (Categories)     | ... | 
-| Pie Chart    | ... |
+
+* Bar Chart Vertical
+* Bar Chart Horizontal
+* Bar Chart Categories Horizontal
+* Bar Chart Categories Vertical
+* Bar Chart Stacked Horizontal
+* Bar Chart Stacked Vertical
+* Pie Chart
+* Scatter Chart
+* Scatter Chart Categories
+* Line Chart
+* Line Chart Multi
+* Line Chart Stacked
 
  Each chart type expects additional configuration information which needs to be added to the [Chart Config](#charts-config).
 
  **Templates are fixed** and cannot be modified by the user. Styling includes fonts, colors, labels, etc.
 
-
+---
 
 ### Chart Config
 
@@ -175,38 +179,58 @@ This file provides **advanced configuration** for charts that need more than bas
 
 The following table lists the obligatory properties for each Chart Type:
 
-| Chart Type |Properties        | 
-|--------|--------------------|
-| Bar Chart       |  x_col_name, y_col_name |
-| Bar Chart (Categories)     | category_col, series_cols  | 
-| Pie Chart    | ...           name_col, value_col |
+| **Chart Type**                  | **Properties**           | **Description**                                                                 |
+|--------------------------------|--------------------------|---------------------------------------------------------------------------------|
+| Bar Chart Vertical             | Category                 | Name of the Dataset Column of the Bar Chart categories                         |
+|                                | Value                    | Name of the Dataset Column of the Bar Chart values                              |
+| Bar Chart Horizontal           | Category                 | Name of the Dataset Column of the Bar Chart categories                         |
+|                                | Value                    | Name of the Dataset Column of the Bar Chart values                              |
+| Bar Chart Categories Vertical  | Category                 | Name of the Dataset Column of the Bar Chart categories                         |
+|                                | Value Series             | Names of Dataset Columns representing different value series for each category |
+| Bar Chart Categories Horizontal| Category                 | Name of the Dataset Column of the Bar Chart categories                         |
+|                                | Value Series             | Names of Dataset Columns representing different value series for each category |
+| **Bar Chart Stacked Vertical** | Category                 | Name of the Dataset Column of the Bar Chart categories                         |
+|                                | Series Columns           | Names of Dataset Columns to be stacked per category                            |
+| **Bar Chart Stacked Horizontal**| Category                | Name of the Dataset Column of the Bar Chart categories                         |
+|                                | Series Columns           | Names of Dataset Columns to be stacked per category                            |
+| Pie Chart                      | Category                 | Name of the Dataset Column of the Pie Chart names                              |
+|                                | Value                    | Name of the Dataset Column of the Pie Chart values                             |
+| Scatter Chart Categories       | Category                 | Name of the Dataset Column of the data point categories                        |
+|                                | X Axis                   | Name of the Dataset Column for X values                                        |
+|                                | Y Axis                   | Name of the Dataset Column for Y values                                        |
+| Scatter Chart                  | X Axis                   | Name of the Dataset Column for X values                                        |
+|                                | Y Axis                   | Name of the Dataset Column for Y values                                        |
+| Line Chart                     | X Axis                   | Name of the Dataset Column for X values                                        |
+|                                | Y Axis                   | Name of the Dataset Column for Y values                                        |
+| Line Chart Multi               | X Axis                   | Name of the Dataset Column for X values                                        |
+|                                | Y Axis Series            | Names of Dataset Columns representing different series for Y axis              |
+| Line Chart Stacked             | X Axis                   | Name of the Dataset Column for X values                                        |
+|                                | Y Axis Series            | Names of Dataset Columns to be stacked per X value                             |
 
-Here is an example how the data should be stored:
 
-| Chart Code  | Property      | Value                                     |
-|-------------|---------------|-------------------------------------------|
-| M1_C1_1     | name_col      | Sector                                    |
-| M1_C1_1     | value_col     | 2021.0                                    |
-| M1_C1_2    | x_col_name    | Category                                  |
-| M1_C1_2    | y_col_name    | 2022 (watts per capita)                   |
-| M1_C1_3   | category_col  | Category                                  |
-| M1_C1_3   | series_cols   | 2015 (watts per capita), 2022 (watts per capita) |
-
+---
 
 ### Chart Prompt Template
 
-For unsupported chart types, a **Chart Prompt Template** is used to create charts via a Large Language Model (LLM), such as XY.
+For unsupported chart types, a **Chart Prompt Template** is used to create charts via a Large Language Model (LLM).
+
+- **Stored in:** `02_Inputs/Templates/custom_prompt_template`
 
 This template includes:
 - Chart metadata
-- Dataset 
+- Dataset
 - Reference chart
 - Instructions for rendering
 
-#TODO
+#### How to use
+
+1. Copy the entire contents of the `custom_prompt_template` file.
+2. Fill in the necessary parts (chart metadata, dataset, reference chart, instructions) with the details relevant to your specific chart.
+3. Use the completed prompt to generate your chart via the LLM.
 
 
 
+---
 
 ##  Need Help?
 

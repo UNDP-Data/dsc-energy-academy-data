@@ -1,3 +1,4 @@
-02_Inputs/*
+02_Inputs/Data/*
+02_Inputs/Metadata/*
 03_Outputs/*
 01_Code/__pycache__
