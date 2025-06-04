@@ -249,7 +249,26 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "pie_chart", global_template_path)
             else:
                 print(f"Missing styling for pie chart: {chart_id}")
+        
+        elif chart_type == "doughnut chart":
+            name_col = style.get("Category")
+            value_col = style.get("Value")
+            if name_col and value_col:
+                template_path = Path(template_folder_path) / "doughnut_chart_template.json"
 
+                def specific_prepare(template, df):
+                    if name_col not in df.columns or value_col not in df.columns:
+                        raise ValueError(f"Missing columns: {name_col}, {value_col}")
+                    template["series"][0]["data"] = [
+                        {"name": row[name_col], "value": row[value_col]}
+                        for _, row in df.iterrows()
+                    ]
+
+                prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "doughnut_chart", global_template_path)
+            else:
+                print(f"Missing styling for doughnut chart: {chart_id}")
+        
         elif chart_type == "bar chart categories horizontal":
             category_col = style.get("Category")
             series_cols = style.get("Value Series")
