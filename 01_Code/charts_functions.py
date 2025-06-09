@@ -10,15 +10,13 @@ def extract_dataset(in_dir):
     charts = {}
 
     # Loop through all Excel files
-    for excel_file in input_dir.glob("Module * - Datasets for Charts.xlsx"):
-        module_name = excel_file.stem.split(" -")[0].replace(" ", "")  # e.g., "Module1"
-
+    for excel_file in input_dir.glob("Module *"):
+        module_name = excel_file.stem.split(" -")[0].replace(" ", "")  # e.g., "Module 1"
         # Load Excel file
         xls = pd.ExcelFile(excel_file)
         for sheet_name in xls.sheet_names:
             try:
                 df = pd.read_excel(excel_file, sheet_name=sheet_name, dtype=str)
-
                 # Drop fully empty rows and columns
                 df.dropna(how='all', inplace=True)
                 df.dropna(axis=1, how='all', inplace=True)
@@ -26,7 +24,9 @@ def extract_dataset(in_dir):
 
                 # Assume sheet_name is or contains the Figure ID
                 figure_id = sheet_name.strip()
-
+                if not figure_id:
+                    print(f"Warning: Blank figure ID in sheet '{sheet_name}' from file '{excel_file.name}'")
+                    continue
                 # Save to memory as string
                 csv_content = df.to_csv(index=False, header=True).strip()
                 charts[figure_id] = csv_content
@@ -40,7 +40,6 @@ def extract_dataset(in_dir):
 def extract_metadata(in_path):
     xls = pd.ExcelFile(in_path)
     sheet_names = [name for name in xls.sheet_names if name.lower().startswith("module")]
-
     df_list = []
     for sheet in sheet_names:
         try:
@@ -59,7 +58,6 @@ def merge_data_metadata(metadata_df, chart_datasets, out_path):
     # Filter metadata
     filtered = metadata_df[
         (metadata_df["Category"] == "Chart to recreate") &
-        (metadata_df["Chart Status"] == "Ready") &
         (metadata_df["Apache Possible"] == "Yes") &
         (metadata_df["Automation Possible"] == "Yes") &
         (metadata_df["Dataset Status"] == "Ready")
@@ -361,6 +359,48 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_vertical_stacked", global_template_path)
             else:
                 print(f"Missing styling for vertical stacked bar chart: {chart_id}")
+
+        elif chart_type == "bar chart stacked normalized vertical":
+            category_col = style.get("Category")
+            series_cols = style.get("Value Series")
+            if isinstance(series_cols, str):
+                series_cols = [s.strip() for s in series_cols.split(',')]
+
+            if category_col and series_cols:
+                template_path = Path(template_folder_path) / "bar_chart_stacked_normalized_vertical_template.json"
+
+                def specific_prepare(template, df):
+                    if category_col not in df.columns:
+                        raise ValueError(f"Missing category column: {category_col}")
+                    for col in series_cols:
+                        if col not in df.columns:
+                            raise ValueError(f"Missing series column: {col}")
+
+                    df[series_cols] = df[series_cols].apply(pd.to_numeric, errors='coerce')
+                    
+                    template["xAxis"]["data"] = df[category_col].tolist()
+                    template["xAxis"]["name"] = category_col
+
+                    # Normalize values
+                    total_series = df[series_cols].sum(axis=1).replace(0, 1)
+                    normalized_data = [(df[col] / total_series).tolist() for col in series_cols]
+
+                    # Use first series item as base style
+                    base_series = template["series"][0]
+                    template["series"] = [
+                        {
+                            **base_series,
+                            "name": col,
+                            "data": data
+                        }
+                        for col, data in zip(series_cols, normalized_data)
+                    ]
+
+                prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_vertical_normalized_stacked", global_template_path)
+            else:
+                print(f"Missing styling for normalized vertical stacked bar chart: {chart_id}")
+
 
         elif chart_type == "bar chart stacked horizontal":
             category_col = style.get("Category")
