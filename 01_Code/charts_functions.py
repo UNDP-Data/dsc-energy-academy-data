@@ -295,7 +295,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "category_bar_chart_horizontal", global_template_path)
             else:
-                print(f"Missing styling for bar chart categories: {chart_id}")
+                print(f"Missing styling for bar chart categories horizontal: {chart_id}")
 
         elif chart_type == "bar chart categories vertical":
             category_col = style.get("Category")
@@ -324,7 +324,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "category_bar_chart_vertical", global_template_path)
             else:
-                print(f"Missing styling for bar chart categories: {chart_id}")
+                print(f"Missing styling for bar chart categories vertical: {chart_id}")
 
         elif chart_type == "bar chart stacked vertical":
             category_col = style.get("Category")
