@@ -53,22 +53,42 @@ def extract_metadata(in_path):
     return combined_df
 
 
-def merge_data_metadata(metadata_df, chart_datasets, out_path):
-
-    # Filter metadata
-    filtered = metadata_df[
-        (metadata_df["Category"] == "Chart to recreate") &
-        (metadata_df["Apache Possible"] == "Yes") &
-        (metadata_df["Automation Possible"] == "Yes") &
-        (metadata_df["Dataset Status"] == "Ready")
-    ]
-
-    # Merge metadata with datasets
+def merge_data_metadata(metadata_df, chart_datasets):
     charts = {}
-    for _, row in filtered.iterrows():
-        figure_id = str(row["Figure ID"]).strip()
-        dataset = chart_datasets.get(figure_id)
+    excluded = []
+    added_ids = []
 
+    # Counters for each filter condition
+    total_charts = len(metadata_df)
+    filtered_counts = {
+        "Category": 0,
+        "Apache Possible": 0,
+        "Automation Possible": 0,
+        "Dataset Status": 0
+    }
+
+    for _, row in metadata_df.iterrows():
+        figure_id = str(row["Figure ID"]).strip()
+        reasons = []
+
+        if row["Category"] != "Chart to recreate":
+            reasons.append("Category ≠ 'Chart to recreate'")
+            filtered_counts["Category"] += 1
+        if row["Apache Possible"] != "Yes":
+            reasons.append("Apache Possible ≠ 'Yes'")
+            filtered_counts["Apache Possible"] += 1
+        if row["Automation Possible"] != "Yes":
+            reasons.append("Automation Possible ≠ 'Yes'")
+            filtered_counts["Automation Possible"] += 1
+        if row["Dataset Status"] != "Ready":
+            reasons.append("Dataset Status ≠ 'Ready'")
+            filtered_counts["Dataset Status"] += 1
+
+        if reasons:
+            excluded.append((figure_id, reasons))
+            continue
+
+        dataset = chart_datasets.get(figure_id)
         chart_entry = {
             "metadata": row.to_dict(),
             "dataset": dataset if dataset else None
@@ -78,12 +98,44 @@ def merge_data_metadata(metadata_df, chart_datasets, out_path):
             print(f"❗ No dataset found for {figure_id}")
 
         charts[figure_id] = chart_entry
+        added_ids.append(figure_id)
 
     # Replace NaNs in metadata
     for chart in charts.values():
         chart["metadata"] = {k: (None if pd.isna(v) else v) for k, v in chart["metadata"].items()}
 
+    # Log filtered-out charts with reasons
+    if excluded:
+        print("\n🚫 Filtered-out charts:")
+        for figure_id, reasons in excluded:
+            reason_str = "; ".join(reasons)
+            print(f" - {figure_id}: {reason_str}")
+
+    # Summary statistics
+    total_added = len(added_ids)
+    total_excluded = len(excluded)
+    quota = round((total_added / total_charts) * 100, 2) if total_charts else 0
+
+    print("\n📊 Chart Filtering Summary:")
+    print(f" - Total charts in metadata: {total_charts}")
+    print(f" - Charts added: {total_added}")
+    print(f" - Charts excluded: {total_excluded}")
+    print(f" - Quota: {quota}%\n")
+
+    print("🚫 Breakdown of filters (charts excluded due to each condition):")
+    for condition, count in filtered_counts.items():
+        print(f"   • {condition}: {count}")
+
+    # Print added chart IDs
+    if added_ids:
+        print("\n✅ Charts successfully added:")
+        for fid in added_ids:
+            print(f" - {fid}")
+
     return charts
+
+
+
 
 
 
@@ -163,6 +215,10 @@ def generate_chart(chart_id, metadata, dataset_str, template_path, output_dir, p
 
 def common_prepare_data_wrapper(metadata, specific_prepare_fn):
     def wrapped(template, df):
+        '''
+        
+        Title, Subtitle and Footnote are currently disabled in the pipeline as they are handled in the Frontend
+        
         template["title"]["text"] = metadata.get("Title", "")
         template["title"]["subtext"] = metadata.get("Subtitle", "")
 
@@ -173,6 +229,7 @@ def common_prepare_data_wrapper(metadata, specific_prepare_fn):
                 if g.get("type") == "text" and g["style"].get("text") == "":
                     g["style"]["text"] = footnote
                     break
+        '''            
         # Chart-specific logic
         specific_prepare_fn(template, df)
     return wrapped
@@ -242,6 +299,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         {"name": row[name_col], "value": row[value_col]}
                         for _, row in df.iterrows()
                     ]
+                    template.pop("xAxis", None)
+                    template.pop("yAxis", None)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "pie_chart", global_template_path)
@@ -261,7 +320,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         {"name": row[name_col], "value": row[value_col]}
                         for _, row in df.iterrows()
                     ]
-
+                    template.pop("xAxis", None)
+                    template.pop("yAxis", None)
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "doughnut_chart", global_template_path)
             else:
@@ -270,10 +330,11 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
         elif chart_type == "bar chart categories horizontal":
             category_col = style.get("Category")
             series_cols = style.get("Value Series")
+            series_cols_unit = style.get("Value Series Unit")
             if isinstance(series_cols, str):
                 series_cols = [s.strip() for s in series_cols.split(',')]
 
-            if category_col and series_cols:
+            if category_col and series_cols and series_cols_unit:
                 template_path = Path(template_folder_path) / "bar_chart_categories_horizontal_template.json"
 
                 def specific_prepare(template, df):
@@ -284,6 +345,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                             raise ValueError(f"Missing series column: {col}")
                     template["yAxis"]["data"] = df[category_col].tolist()
                     template["yAxis"]["name"] = category_col
+                    template["xAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {"name": col, "type": "bar", "data": df[col].tolist()}
                         for col in series_cols
@@ -300,10 +362,11 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
         elif chart_type == "bar chart categories vertical":
             category_col = style.get("Category")
             series_cols = style.get("Value Series")
+            series_cols_unit = style.get("Value Series Unit")
             if isinstance(series_cols, str):
                 series_cols = [s.strip() for s in series_cols.split(',')]
 
-            if category_col and series_cols:
+            if category_col and series_cols and series_cols_unit:
                 template_path = Path(template_folder_path) / "bar_chart_categories_vertical_template.json"
 
                 def specific_prepare(template, df):
@@ -315,7 +378,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
 
                     template["xAxis"]["data"] = df[category_col].tolist()
                     template["xAxis"]["name"] = category_col
-
+                    template["yAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {"name": col, "type": "bar", "data": df[col].tolist()}
                         for col in series_cols
@@ -329,10 +392,11 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
         elif chart_type == "bar chart stacked vertical":
             category_col = style.get("Category")
             series_cols = style.get("Value Series")
+            series_cols_unit = style.get("Value Series Unit")
             if isinstance(series_cols, str):
                 series_cols = [s.strip() for s in series_cols.split(',')]
 
-            if category_col and series_cols:
+            if category_col and series_cols and series_cols_unit:
                 template_path = Path(template_folder_path) / "bar_chart_stacked_vertical_template.json"
 
                 def specific_prepare(template, df):
@@ -343,12 +407,12 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                             raise ValueError(f"Missing series column: {col}")
                     template["xAxis"]["data"] = df[category_col].tolist()
                     template["xAxis"]["name"] = category_col
+                    template["yAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {
                             "name": col,
                             "type": "bar",
                             "stack": "total",
-                            "label": {"show": True},
                             "emphasis": {"focus": "series"},
                             "data": df[col].tolist()
                         }
@@ -363,10 +427,11 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
         elif chart_type == "bar chart stacked normalized vertical":
             category_col = style.get("Category")
             series_cols = style.get("Value Series")
+            series_cols_unit = style.get("Value Series Unit")
             if isinstance(series_cols, str):
                 series_cols = [s.strip() for s in series_cols.split(',')]
 
-            if category_col and series_cols:
+            if category_col and series_cols and series_cols_unit:
                 template_path = Path(template_folder_path) / "bar_chart_stacked_normalized_vertical_template.json"
 
                 def specific_prepare(template, df):
@@ -380,6 +445,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     
                     template["xAxis"]["data"] = df[category_col].tolist()
                     template["xAxis"]["name"] = category_col
+                    template["yAxis"]["name"] = series_cols_unit
 
                     # Normalize values
                     total_series = df[series_cols].sum(axis=1).replace(0, 1)
@@ -405,9 +471,10 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
         elif chart_type == "bar chart stacked horizontal":
             category_col = style.get("Category")
             series_cols = style.get("Value Series")
+            series_cols_unit = style.get("Value Series Unit")
             if isinstance(series_cols, str):
                 series_cols = [s.strip() for s in series_cols.split(',')]
-            if category_col and series_cols:
+            if category_col and series_cols and series_cols_unit:
                 template_path = Path(template_folder_path) / "bar_chart_horizontal_stacked_template.json"
 
                 def specific_prepare(template, df):
@@ -418,12 +485,12 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                             raise ValueError(f"Missing series column: {col}")
                     template["yAxis"]["data"] = df[category_col].tolist()
                     template["yAxis"]["name"] = category_col
+                    template["xAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {
                             "name": col,
                             "type": "bar",
                             "stack": "total",
-                            "label": {"show": True},
                             "emphasis": {"focus": "series"},
                             "data": df[col].tolist()
                         }
@@ -449,6 +516,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     if x_col not in df.columns or y_col not in df.columns:
                         raise ValueError(f"Missing columns: {x_col}, {y_col}")
                     template["series"][0]["data"] = df[[x_col, y_col]].values.tolist()
+                    template["xAxis"]["name"] = x_col
+                    template["yAxis"]["name"] = y_col
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "scatter_chart", global_template_path)
@@ -459,6 +528,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
             category_col = style.get("Category")
             x_col = style.get("X Axis")
             y_col = style.get("Y Axis")
+            tooltip_col = style.get("Tooltip")
 
             if category_col and x_col and y_col:
                 template_path = Path(template_folder_path) / "scatter_chart_categories_template.json"
@@ -467,24 +537,40 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     for col in [category_col, x_col, y_col]:
                         if col not in df.columns:
                             raise ValueError(f"Missing column: {col}")
+                    use_tooltip = bool(tooltip_col and tooltip_col.strip())
+                    if use_tooltip and tooltip_col not in df.columns:
+                        raise ValueError(f"Missing column: {tooltip_col}")
+
                     template["xAxis"]["name"] = x_col
                     template["yAxis"]["name"] = y_col
                     prototype_series = template["series"][0]
                     grouped = df.groupby(category_col)
 
-                    template["series"] = [
-                        {
+                    template["series"] = []
+                    for name, group_df in grouped:
+                        series_data = []
+                        for _, row in group_df.iterrows():
+                            if use_tooltip:
+                                point = {
+                                    "value": [row[x_col], row[y_col]],
+                                    "tooltip": str(row[tooltip_col])
+                                }
+                            else:
+                                point = [row[x_col], row[y_col]]
+                            series_data.append(point)
+
+                        series_entry = {
                             **prototype_series,
                             "name": name,
-                            "data": group_df[[x_col, y_col]].values.tolist()
+                            "data": series_data
                         }
-                        for name, group_df in grouped
-                    ]
+                        template["series"].append(series_entry)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "scatter_categories", global_template_path)
             else:
                 print(f"Missing styling for scatter chart categories: {chart_id}")
+
 
         elif chart_type == "line chart":
             x_col = style.get("X Axis")
@@ -510,10 +596,11 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
         elif chart_type == "line chart multi":
             x_col = style.get("X Axis")
             y_cols = style.get("Y Axis Series")
+            series_cols_unit = style.get("Value Series Unit")
             if isinstance(y_cols, str):
                 y_cols = [s.strip() for s in y_cols.split(',')]
 
-            if x_col and y_cols:
+            if x_col and y_cols and series_cols_unit:
                 template_path = Path(template_folder_path) / "line_chart_multi_template.json"
 
                 def specific_prepare(template, df):
@@ -532,7 +619,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         for col in y_cols
                     ]
                     template["xAxis"]["name"] = x_col
-                    template["yAxis"]["name"] = ", ".join(y_cols)
+                    template["yAxis"]["name"] = series_cols_unit
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "line_chart_multi", global_template_path)
@@ -542,11 +629,12 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
         elif chart_type == "line chart stacked":
             x_col = style.get("X Axis")
             series_cols = style.get("Y Axis Series")
+            series_cols_unit = style.get("Value Series Unit")
 
             if isinstance(series_cols, str):
                 series_cols = [s.strip() for s in series_cols.split(',')]
 
-            if x_col and series_cols:
+            if x_col and series_cols and series_cols_unit:
                 template_path = Path(template_folder_path) / "line_chart_stacked_template.json"
 
                 def specific_prepare(template, df):
@@ -556,6 +644,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         if col not in df.columns:
                             raise ValueError(f"Missing series column: {col}")
                     template["xAxis"]["data"] = df[x_col].tolist()
+                    template["yAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {
                             "name": col,
