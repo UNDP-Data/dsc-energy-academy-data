@@ -1,0 +1,237 @@
+{
+  "textStyle": {
+    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontSize": 12,
+    "fontWeight": "normal"
+  },
+  "axisLabel": {
+    "fontSize": 12,
+    "color": "#666666"
+  },
+  "legend": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#444444"
+    },
+    "orient": "horizontal",
+    "top": "bottom"
+  },
+  "tooltip": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#FFFFFF"
+    },
+    "backgroundColor": "rgba(50, 50, 50, 0.85)",
+    "borderColor": "#CCCCCC",
+    "formatter": null
+  },
+  "backgroundColor": "transparent",
+  "color": [
+    "#1f77b4",
+    "#ff7f0e",
+    "#2ca02c",
+    "#d62728",
+    "#9467bd",
+    "#8c564b",
+    "#e377c2",
+    "#7f7f7f",
+    "#bcbd22",
+    "#17becf"
+  ],
+  "xAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#999999",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dashed",
+        "color": "#DDDDDD",
+        "opacity": 0.5
+      }
+    },
+    "axisLabel": {
+      "color": "#666666",
+      "fontSize": 12,
+      "interval": 0
+    },
+    "nameTextStyle": {
+      "color": "#444444",
+      "fontSize": 14
+    },
+    "type": "category",
+    "data": [
+      1800,
+      1820,
+      1840,
+      1860,
+      1880,
+      1900,
+      1920,
+      1940,
+      1950,
+      1960,
+      1970,
+      1980,
+      1990,
+      2000,
+      2010,
+      2020,
+      2023,
+      2025,
+      2030,
+      2035,
+      2040,
+      2050
+    ],
+    "name": "Year"
+  },
+  "yAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#999999",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dotted",
+        "color": "#EEEEEE",
+        "opacity": 0.4
+      }
+    },
+    "axisLabel": {
+      "color": "#666666",
+      "fontSize": 12
+    },
+    "nameTextStyle": {
+      "color": "#444444",
+      "fontSize": 14
+    },
+    "type": "value",
+    "name": "test"
+  },
+  "label": {
+    "overflow": "truncate",
+    "ellipsis": "...",
+    "show": false
+  },
+  "hoverLayerThreshold": 3000,
+  "tooltipTrigger": "axis",
+  "emphasis": {
+    "itemStyle": {
+      "borderWidth": 1,
+      "borderColor": "#000000"
+    }
+  },
+  "accessibility": {
+    "contrastRatioMin": 4.5,
+    "colorBlindSafe": true
+  },
+  "series": [
+    {
+      "name": "World",
+      "type": "bar",
+      "stack": "total",
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        "15",
+        "18",
+        "22",
+        "28",
+        "36",
+        "50",
+        "70",
+        "110",
+        "130",
+        "180",
+        "260",
+        "340",
+        "390",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "OECD",
+      "type": "bar",
+      "stack": "total",
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "220",
+        "224",
+        "204",
+        "210",
+        "210",
+        "206",
+        "200",
+        "194",
+        "185"
+      ]
+    },
+    {
+      "name": "Non-OECD",
+      "type": "bar",
+      "stack": "total",
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "185",
+        "288",
+        "348",
+        "376",
+        "390",
+        "419",
+        "438",
+        "450",
+        "478"
+      ]
+    }
+  ]
+}

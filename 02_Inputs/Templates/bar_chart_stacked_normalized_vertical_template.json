@@ -1,4 +1,7 @@
-{
+{  
+  "label": {
+  "show": false
+},
   "xAxis": {
     "type": "category",
     "data": [],
@@ -16,7 +19,6 @@
       "type": "bar",
       "stack": "total",
       "label": {
-        "show": true,
         "formatter": {
           "function": "function(params) { return Math.round(params.value * 1000) / 10 + '%'; }"
         }

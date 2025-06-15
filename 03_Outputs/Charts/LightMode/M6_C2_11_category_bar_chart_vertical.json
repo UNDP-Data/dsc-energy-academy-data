@@ -1,0 +1,244 @@
+{
+  "textStyle": {
+    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontSize": 12,
+    "fontWeight": "normal"
+  },
+  "axisLabel": {
+    "fontSize": 12,
+    "color": "#666666"
+  },
+  "legend": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#444444"
+    },
+    "orient": "horizontal",
+    "top": "bottom"
+  },
+  "tooltip": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#FFFFFF"
+    },
+    "backgroundColor": "rgba(50, 50, 50, 0.85)",
+    "borderColor": "#CCCCCC",
+    "formatter": null
+  },
+  "backgroundColor": "transparent",
+  "color": [
+    "#1f77b4",
+    "#ff7f0e",
+    "#2ca02c",
+    "#d62728",
+    "#9467bd",
+    "#8c564b",
+    "#e377c2",
+    "#7f7f7f",
+    "#bcbd22",
+    "#17becf"
+  ],
+  "xAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#999999",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dashed",
+        "color": "#DDDDDD",
+        "opacity": 0.5
+      }
+    },
+    "axisLabel": {
+      "color": "#666666",
+      "fontSize": 12,
+      "interval": 0
+    },
+    "nameTextStyle": {
+      "color": "#444444",
+      "fontSize": 14
+    },
+    "type": "category",
+    "data": [
+      "High income countries",
+      "Upper middle income countries",
+      "Lower middle income countries",
+      "Low income countries",
+      "Figure 2.6?Onshore wind weighted average total installed costs in smaller markets by country, 2010-2023",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "name": "Country Income Level"
+  },
+  "yAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#999999",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dotted",
+        "color": "#EEEEEE",
+        "opacity": 0.4
+      }
+    },
+    "axisLabel": {
+      "color": "#666666",
+      "fontSize": 12
+    },
+    "nameTextStyle": {
+      "color": "#444444",
+      "fontSize": 14
+    },
+    "type": "value",
+    "name": "test"
+  },
+  "label": {
+    "overflow": "truncate",
+    "ellipsis": "..."
+  },
+  "hoverLayerThreshold": 3000,
+  "tooltipTrigger": "axis",
+  "emphasis": {
+    "itemStyle": {
+      "borderWidth": 1,
+      "borderColor": "#000000"
+    }
+  },
+  "accessibility": {
+    "contrastRatioMin": 4.5,
+    "colorBlindSafe": true
+  },
+  "series": [
+    {
+      "name": "Onshore wind (%)",
+      "type": "bar",
+      "data": [
+        "4",
+        "7",
+        "8.5",
+        "10.5",
+        null,
+        "Weighted average total installed costs (2023 USD/kW)",
+        "Onshore wind",
+        "Country",
+        "Argentina",
+        "Australia",
+        "Austria",
+        "Chile",
+        "Costa Rica",
+        "Croatia",
+        "Cyprus",
+        "Dominican Republic",
+        "Egypt",
+        "Ethiopia",
+        "Finland",
+        "Greece",
+        "Indonesia",
+        "Ireland",
+        "Morocco",
+        "Netherlands",
+        "New Zealand",
+        "Norway",
+        "Pakistan",
+        "Panama",
+        "Peru",
+        "Philippines",
+        "Poland",
+        "Portugal",
+        "Republic of Korea",
+        "Russian Federation",
+        "South Africa",
+        "Ukraine",
+        "Uruguay",
+        "Viet Nam"
+      ]
+    },
+    {
+      "name": "Solar PV (%)",
+      "type": "bar",
+      "data": [
+        "4",
+        "6.5",
+        "8.5",
+        "9",
+        null,
+        null,
+        null,
+        "2010",
+        null,
+        "4046",
+        null,
+        null,
+        null,
+        null,
+        "2190",
+        null,
+        "1792",
+        null,
+        null,
+        "2934",
+        null,
+        "4139",
+        null,
+        "2109",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "3057",
+        "2395",
+        "2821",
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  ]
+}

@@ -1,4 +1,7 @@
 {
+  "label": {
+  "show": false
+},
   "xAxis": {
     "type": "value"
   },

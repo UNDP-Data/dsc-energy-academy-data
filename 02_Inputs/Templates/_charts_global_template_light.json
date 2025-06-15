@@ -1,0 +1,117 @@
+{
+  "textStyle": {
+    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontSize": 12,
+    "fontWeight": "normal"
+  },
+
+  "axisLabel": {
+    "fontSize": 12,
+    "color": "#666666"
+  },
+
+  "legend": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#444444"
+    },
+    "orient": "horizontal",
+    "top": "bottom"
+  },
+
+  "tooltip": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#FFFFFF"
+    },
+    "backgroundColor": "rgba(50, 50, 50, 0.85)",
+    "borderColor": "#CCCCCC",
+    "formatter": null
+  },
+
+  "backgroundColor": "transparent",
+
+  "color": [
+    "#1f77b4",
+    "#ff7f0e",
+    "#2ca02c",
+    "#d62728",
+    "#9467bd",
+    "#8c564b",
+    "#e377c2",
+    "#7f7f7f",
+    "#bcbd22",
+    "#17becf"
+  ],
+"xAxis": {
+  "axisLine": {
+    "show": true,
+    "lineStyle": {
+      "color": "#999999",
+      "type": "solid",
+      "width": 1
+    }
+  },
+  "splitLine": {
+    "show": true,
+    "lineStyle": {
+      "type": "dashed",
+      "color": "#DDDDDD",
+      "opacity": 0.5
+    }
+  },
+  "axisLabel": {
+    "color": "#666666",
+    "fontSize": 12
+  },
+    "nameTextStyle": {
+    "color": "#444444",
+    "fontSize": 14
+  }
+},
+"yAxis": {
+  "axisLine": {
+    "show": true,
+    "lineStyle": {
+      "color": "#999999",
+      "type": "solid",
+      "width": 1
+    }
+  },
+  "splitLine": {
+    "show": true,
+    "lineStyle": {
+      "type": "dotted",
+      "color": "#EEEEEE",
+      "opacity": 0.4
+    }
+  },
+  "axisLabel": {
+    "color": "#666666", 
+    "fontSize": 12
+  },
+    "nameTextStyle": {
+    "color": "#444444",
+    "fontSize": 14
+  }
+},
+
+  "label": {
+    "overflow": "truncate",
+    "ellipsis": "..."
+  },
+
+  "hoverLayerThreshold": 3000,
+  "tooltipTrigger": "axis",
+  "emphasis": {
+    "itemStyle": {
+      "borderWidth": 1,
+      "borderColor": "#000000"
+    }
+  },
+
+  "accessibility": {
+    "contrastRatioMin": 4.5,
+    "colorBlindSafe": true
+  }
+}

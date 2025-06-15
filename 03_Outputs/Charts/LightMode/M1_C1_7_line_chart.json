@@ -1,34 +1,68 @@
 {
-  "title": {
-    "text": "Figure 1: Global CO2 emissions from energy combustion and industrial processes and \ntheir annual change, 1900-2022",
-    "subtext": null,
-    "left": "center",
-    "top": "top",
-    "textStyle": {
-      "fontSize": 18
-    },
-    "subtextStyle": {
-      "fontSize": 14,
-      "color": "#888"
-    }
+  "textStyle": {
+    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontSize": 12,
+    "fontWeight": "normal"
+  },
+  "axisLabel": {
+    "fontSize": 12,
+    "color": "#666666"
   },
   "legend": {
-    "show": true,
-    "bottom": 20
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#444444"
+    },
+    "orient": "horizontal",
+    "top": "bottom"
   },
-  "graphic": [
-    {
-      "type": "text",
-      "left": "center",
-      "bottom": 0,
-      "style": {
-        "text": null,
-        "font": "12px sans-serif",
-        "fill": "#999"
-      }
-    }
+  "tooltip": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#FFFFFF"
+    },
+    "backgroundColor": "rgba(50, 50, 50, 0.85)",
+    "borderColor": "#CCCCCC",
+    "formatter": null
+  },
+  "backgroundColor": "transparent",
+  "color": [
+    "#1f77b4",
+    "#ff7f0e",
+    "#2ca02c",
+    "#d62728",
+    "#9467bd",
+    "#8c564b",
+    "#e377c2",
+    "#7f7f7f",
+    "#bcbd22",
+    "#17becf"
   ],
   "xAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#999999",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dashed",
+        "color": "#DDDDDD",
+        "opacity": 0.5
+      }
+    },
+    "axisLabel": {
+      "color": "#666666",
+      "fontSize": 12
+    },
+    "nameTextStyle": {
+      "color": "#444444",
+      "fontSize": 14
+    },
     "type": "category",
     "data": [
       1899,
@@ -159,8 +193,48 @@
     "name": "Year"
   },
   "yAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#999999",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dotted",
+        "color": "#EEEEEE",
+        "opacity": 0.4
+      }
+    },
+    "axisLabel": {
+      "color": "#666666",
+      "fontSize": 12
+    },
+    "nameTextStyle": {
+      "color": "#444444",
+      "fontSize": 14
+    },
     "type": "value",
     "name": "Total (Gt CO2)"
+  },
+  "label": {
+    "overflow": "truncate",
+    "ellipsis": "..."
+  },
+  "hoverLayerThreshold": 3000,
+  "tooltipTrigger": "axis",
+  "emphasis": {
+    "itemStyle": {
+      "borderWidth": 1,
+      "borderColor": "#000000"
+    }
+  },
+  "accessibility": {
+    "contrastRatioMin": 4.5,
+    "colorBlindSafe": true
   },
   "series": [
     {
