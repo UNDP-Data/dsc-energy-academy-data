@@ -2,37 +2,31 @@
   "textStyle": {
     "fontFamily": "Proxima Nova, sans-serif",
     "fontSize": 12,
-    "fontWeight": "normal",
-    "color": "#DDDDDD"
+    "fontWeight": "normal"
   },
-
   "axisLabel": {
     "fontSize": 12,
-    "color": "#AAAAAA"
+    "color": "#666666"
   },
-
   "legend": {
     "textStyle": {
       "fontSize": 12,
-      "color": "#CCCCCC"
+      "color": "#444444"
     },
     "orient": "horizontal",
     "top": "bottom",
     "type": "scroll"
   },
-
   "tooltip": {
     "textStyle": {
       "fontSize": 12,
       "color": "#FFFFFF"
     },
-    "backgroundColor": "rgba(30, 30, 30, 0.85)",
-    "borderColor": "#555555",
+    "backgroundColor": "rgba(50, 50, 50, 0.85)",
+    "borderColor": "#CCCCCC",
     "formatter": null
   },
-
-  "backgroundColor": "#1e1e1e",
-
+  "backgroundColor": "transparent",
   "color": [
     "#fcc30b",
     "#0468b1",
@@ -45,12 +39,11 @@
     "#4c9f38",
     "#0a97d9"
   ],
-
   "xAxis": {
     "axisLine": {
       "show": true,
       "lineStyle": {
-        "color": "#888888",
+        "color": "#999999",
         "type": "solid",
         "width": 1
       }
@@ -59,25 +52,37 @@
       "show": true,
       "lineStyle": {
         "type": "dashed",
-        "color": "#444444",
-        "opacity": 0.3
+        "color": "#DDDDDD",
+        "opacity": 0.5
       }
     },
     "axisLabel": {
-      "color": "#AAAAAA",
-      "fontSize": 12
+      "color": "#666666",
+      "fontSize": 12,
+      "interval": 0
     },
     "nameTextStyle": {
-      "color": "#CCCCCC",
+      "color": "#444444",
       "fontSize": 14
-    }
+    },
+    "type": "category",
+    "data": [
+      "World",
+      "Central Asia and\nSouthern Asia",
+      "Eastern Asia and\nSouth eastern Asia",
+      "Latin America and\nthe Caribbean",
+      "Northern America and\nEurope",
+      "Oceania",
+      "Sub-Saharan Africa",
+      "Western Asia and\nNorthern Africa"
+    ],
+    "name": "Region"
   },
-
   "yAxis": {
     "axisLine": {
       "show": true,
       "lineStyle": {
-        "color": "#888888",
+        "color": "#999999",
         "type": "solid",
         "width": 1
       }
@@ -86,37 +91,68 @@
       "show": true,
       "lineStyle": {
         "type": "dotted",
-        "color": "#444444",
-        "opacity": 0.3
+        "color": "#EEEEEE",
+        "opacity": 0.4
       }
     },
     "axisLabel": {
-      "color": "#AAAAAA",
+      "color": "#666666",
       "fontSize": 12
     },
     "nameTextStyle": {
-      "color": "#CCCCCC",
+      "color": "#444444",
       "fontSize": 14
-    }
+    },
+    "type": "value",
+    "name": "ADD UNIT"
   },
-
   "label": {
     "overflow": "truncate",
     "ellipsis": "..."
   },
-
   "hoverLayerThreshold": 3000,
   "tooltipTrigger": "axis",
-
   "emphasis": {
     "itemStyle": {
       "borderWidth": 1,
-      "borderColor": "#FFFFFF"
+      "borderColor": "#000000"
     }
   },
-
   "accessibility": {
     "contrastRatioMin": 4.5,
     "colorBlindSafe": true
+  },
+  "series": [
+    {
+      "name": "Annual increase in population with access",
+      "type": "bar",
+      "data": [
+        93.6,
+        40.1,
+        10.4,
+        5.7,
+        -2.0,
+        0.3,
+        31.1,
+        8.3
+      ]
+    },
+    {
+      "name": "Annual increase in population",
+      "type": "bar",
+      "data": [
+        65.3,
+        20.6,
+        5.4,
+        4.4,
+        -2.0,
+        0.4,
+        28.7,
+        7.8
+      ]
+    }
+  ],
+  "grid": {
+    "bottom": 60
   }
 }

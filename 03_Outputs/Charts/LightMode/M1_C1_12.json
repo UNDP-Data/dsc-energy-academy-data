@@ -2,37 +2,31 @@
   "textStyle": {
     "fontFamily": "Proxima Nova, sans-serif",
     "fontSize": 12,
-    "fontWeight": "normal",
-    "color": "#DDDDDD"
+    "fontWeight": "normal"
   },
-
   "axisLabel": {
     "fontSize": 12,
-    "color": "#AAAAAA"
+    "color": "#666666"
   },
-
   "legend": {
     "textStyle": {
       "fontSize": 12,
-      "color": "#CCCCCC"
+      "color": "#444444"
     },
     "orient": "horizontal",
     "top": "bottom",
     "type": "scroll"
   },
-
   "tooltip": {
     "textStyle": {
       "fontSize": 12,
       "color": "#FFFFFF"
     },
-    "backgroundColor": "rgba(30, 30, 30, 0.85)",
-    "borderColor": "#555555",
+    "backgroundColor": "rgba(50, 50, 50, 0.85)",
+    "borderColor": "#CCCCCC",
     "formatter": null
   },
-
-  "backgroundColor": "#1e1e1e",
-
+  "backgroundColor": "transparent",
   "color": [
     "#fcc30b",
     "#0468b1",
@@ -45,12 +39,11 @@
     "#4c9f38",
     "#0a97d9"
   ],
-
   "xAxis": {
     "axisLine": {
       "show": true,
       "lineStyle": {
-        "color": "#888888",
+        "color": "#999999",
         "type": "solid",
         "width": 1
       }
@@ -59,25 +52,30 @@
       "show": true,
       "lineStyle": {
         "type": "dashed",
-        "color": "#444444",
-        "opacity": 0.3
+        "color": "#DDDDDD",
+        "opacity": 0.5
       }
     },
     "axisLabel": {
-      "color": "#AAAAAA",
+      "color": "#666666",
       "fontSize": 12
     },
     "nameTextStyle": {
-      "color": "#CCCCCC",
+      "color": "#444444",
       "fontSize": 14
-    }
+    },
+    "type": "value",
+    "boundaryGap": [
+      0,
+      0.01
+    ],
+    "name": "ADD UNIT"
   },
-
   "yAxis": {
     "axisLine": {
       "show": true,
       "lineStyle": {
-        "color": "#888888",
+        "color": "#999999",
         "type": "solid",
         "width": 1
       }
@@ -86,37 +84,77 @@
       "show": true,
       "lineStyle": {
         "type": "dotted",
-        "color": "#444444",
-        "opacity": 0.3
+        "color": "#EEEEEE",
+        "opacity": 0.4
       }
     },
     "axisLabel": {
-      "color": "#AAAAAA",
+      "color": "#666666",
       "fontSize": 12
     },
     "nameTextStyle": {
-      "color": "#CCCCCC",
+      "color": "#444444",
       "fontSize": 14
-    }
+    },
+    "type": "category",
+    "data": [
+      "Total Final Energy\nConsumption",
+      "Modern renewable\nsources",
+      "Traditional use of\nbiomass",
+      "Electricity",
+      "Transport",
+      "Heat",
+      "Modern renewable\nsources",
+      "Traditional use of\nbiomass"
+    ]
   },
-
   "label": {
     "overflow": "truncate",
     "ellipsis": "..."
   },
-
   "hoverLayerThreshold": 3000,
   "tooltipTrigger": "axis",
-
   "emphasis": {
     "itemStyle": {
       "borderWidth": 1,
-      "borderColor": "#FFFFFF"
+      "borderColor": "#000000"
     }
   },
-
   "accessibility": {
     "contrastRatioMin": 4.5,
     "colorBlindSafe": true
+  },
+  "series": [
+    {
+      "name": "2015",
+      "type": "bar",
+      "data": [
+        16.7,
+        10.0,
+        6.7,
+        22.9,
+        3.5,
+        23.0,
+        9.3,
+        13.7
+      ]
+    },
+    {
+      "name": "2021",
+      "type": "bar",
+      "data": [
+        18.7,
+        12.5,
+        6.2,
+        28.2,
+        4.4,
+        23.5,
+        10.5,
+        13.0
+      ]
+    }
+  ],
+  "grid": {
+    "left": 217
   }
 }
