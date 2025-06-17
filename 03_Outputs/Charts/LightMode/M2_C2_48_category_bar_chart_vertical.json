@@ -1,6 +1,6 @@
 {
   "textStyle": {
-    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontFamily": "Proxima Nova, sans-serif",
     "fontSize": 12,
     "fontWeight": "normal"
   },
@@ -27,16 +27,16 @@
   },
   "backgroundColor": "transparent",
   "color": [
-    "#1f77b4",
-    "#ff7f0e",
-    "#2ca02c",
-    "#d62728",
-    "#9467bd",
-    "#8c564b",
-    "#e377c2",
-    "#7f7f7f",
-    "#bcbd22",
-    "#17becf"
+    "#fcc30b",
+    "#0468b1",
+    "#fd6925",
+    "#c5192d",
+    "#3f7e44",
+    "#19486a",
+    "#fd9d24",
+    "#dd1367",
+    "#4c9f38",
+    "#0a97d9"
   ],
   "xAxis": {
     "axisLine": {
@@ -67,13 +67,13 @@
     "type": "category",
     "data": [
       "World",
-      "Central Asia and Southern Asia",
-      "Eastern Asia and South eastern Asia",
-      "Latin America and the Caribbean",
-      "Northern America and Europe",
+      "Central\nAsia and\nSouthern\nAsia",
+      "Eastern\nAsia and\nSouth\neastern\nAsia",
+      "Latin\nAmerica\nand the\nCaribbean",
+      "Northern\nAmerica\nand Europe",
       "Oceania",
-      "Sub-Saharan Africa",
-      "Western Asia and Northern Africa"
+      "\nSub-Saharan\nAfrica",
+      "Western\nAsia and\nNorthern\nAfrica"
     ],
     "name": "Region"
   },
@@ -150,5 +150,8 @@
         7.8
       ]
     }
-  ]
+  ],
+  "grid": {
+    "bottom": 120
+  }
 }

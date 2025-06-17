@@ -52,19 +52,24 @@ def extract_metadata(in_path):
     combined_df = pd.concat(df_list, ignore_index=True)
     return combined_df
 
-
 def merge_data_metadata(metadata_df, chart_datasets):
     charts = {}
     excluded = []
     added_ids = []
 
-    # Counters for each filter condition
+    # Counters and trackers for each filter condition
     total_charts = len(metadata_df)
     filtered_counts = {
         "Category": 0,
         "Apache Possible": 0,
         "Automation Possible": 0,
         "Dataset Status": 0
+    }
+    filtered_ids_by_reason = {
+        "Category": [],
+        "Apache Possible": [],
+        "Automation Possible": [],
+        "Dataset Status": []
     }
 
     for _, row in metadata_df.iterrows():
@@ -74,15 +79,19 @@ def merge_data_metadata(metadata_df, chart_datasets):
         if row["Category"] != "Chart to recreate":
             reasons.append("Category ≠ 'Chart to recreate'")
             filtered_counts["Category"] += 1
+            filtered_ids_by_reason["Category"].append(figure_id)
         if row["Apache Possible"] != "Yes":
             reasons.append("Apache Possible ≠ 'Yes'")
             filtered_counts["Apache Possible"] += 1
+            filtered_ids_by_reason["Apache Possible"].append(figure_id)
         if row["Automation Possible"] != "Yes":
             reasons.append("Automation Possible ≠ 'Yes'")
             filtered_counts["Automation Possible"] += 1
+            filtered_ids_by_reason["Automation Possible"].append(figure_id)
         if row["Dataset Status"] != "Ready":
             reasons.append("Dataset Status ≠ 'Ready'")
             filtered_counts["Dataset Status"] += 1
+            filtered_ids_by_reason["Dataset Status"].append(figure_id)
 
         if reasons:
             excluded.append((figure_id, reasons))
@@ -125,6 +134,9 @@ def merge_data_metadata(metadata_df, chart_datasets):
     print("🚫 Breakdown of filters (charts excluded due to each condition):")
     for condition, count in filtered_counts.items():
         print(f"   • {condition}: {count}")
+        ids = filtered_ids_by_reason[condition]
+        if ids:
+            print(f"     IDs: {', '.join(ids)}")
 
     # Print added chart IDs
     if added_ids:
@@ -136,6 +148,39 @@ def merge_data_metadata(metadata_df, chart_datasets):
 
 
 
+
+def wrap_label(label: str, max_chars: int = 10) -> str:
+    """
+    Heuristically wraps a label string with line breaks to avoid overflow.
+
+    Args:
+        label (str): The label text to wrap.
+        max_chars (int): Maximum characters per line.
+
+    Returns:
+        str: The wrapped label with '\n' line breaks.
+    """
+    label = str(label)  # Ensure it's a string
+    if len(label) <= max_chars:
+        return label
+
+    words = label.split()
+    if len(words) == 1:
+        # No spaces; break arbitrarily every max_chars
+        return "\n".join([label[i:i + max_chars] for i in range(0, len(label), max_chars)])
+
+    lines = []
+    current_line = ""
+    for word in words:
+        if len(current_line + " " + word) <= max_chars:
+            current_line += " " + word if current_line else word
+        else:
+            lines.append(current_line)
+            current_line = word
+    if current_line:
+        lines.append(current_line)
+
+    return "\n".join(lines)
 
 
 
@@ -253,10 +298,17 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                 def specific_prepare(template, df):
                     if x_col not in df.columns or y_col not in df.columns:
                         raise ValueError(f"Missing columns: {x_col}, {y_col}")
-                    template["xAxis"]["data"] = df[y_col].tolist()
+                    
+                    raw_labels = df[x_col].tolist()
+                    wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
+                    
+                    template["xAxis"]["data"] = wrapped_labels
                     template["xAxis"]["name"] = x_col
                     template["yAxis"]["name"] = y_col
-                    template["series"][0]["data"] = df[x_col].tolist()
+                    template["series"][0]["data"] = df[y_col].tolist()
+                    
+                    max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
+                    template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_vertical", global_template_path)
@@ -375,15 +427,21 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     for col in series_cols:
                         if col not in df.columns:
                             raise ValueError(f"Missing series column: {col}")
-
-                    template["xAxis"]["data"] = df[category_col].tolist()
+                    
+                    raw_labels = df[category_col].tolist()
+                    wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
+                    
+                    template["xAxis"]["data"] = wrapped_labels #df[category_col].tolist()
                     template["xAxis"]["name"] = category_col
                     template["yAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {"name": col, "type": "bar", "data": df[col].tolist()}
                         for col in series_cols
                     ]
-
+                    
+                    max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
+                    template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
+                
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "category_bar_chart_vertical", global_template_path)
             else:
@@ -405,7 +463,11 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     for col in series_cols:
                         if col not in df.columns:
                             raise ValueError(f"Missing series column: {col}")
-                    template["xAxis"]["data"] = df[category_col].tolist()
+                        
+                    raw_labels = df[category_col].tolist()
+                    wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
+
+                    template["xAxis"]["data"] = wrapped_labels
                     template["xAxis"]["name"] = category_col
                     template["yAxis"]["name"] = series_cols_unit
                     template["series"] = [
@@ -419,6 +481,9 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         for col in series_cols
                     ]
 
+                    max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
+                    template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
+                
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_vertical_stacked", global_template_path)
             else:
@@ -443,7 +508,10 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
 
                     df[series_cols] = df[series_cols].apply(pd.to_numeric, errors='coerce')
                     
-                    template["xAxis"]["data"] = df[category_col].tolist()
+                    raw_labels = df[category_col].tolist()
+                    wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
+
+                    template["xAxis"]["data"] = wrapped_labels
                     template["xAxis"]["name"] = category_col
                     template["yAxis"]["name"] = series_cols_unit
 
@@ -461,7 +529,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         }
                         for col, data in zip(series_cols, normalized_data)
                     ]
-
+                    max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
+                    template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_vertical_normalized_stacked", global_template_path)
             else:

@@ -1,6 +1,6 @@
 {
   "textStyle": {
-    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontFamily": "Proxima Nova, sans-serif",
     "fontSize": 12,
     "fontWeight": "normal",
     "color": "#DDDDDD"
@@ -30,16 +30,16 @@
   },
   "backgroundColor": "#1e1e1e",
   "color": [
-    "#4dabf7",
-    "#ffa94d",
-    "#69db7c",
-    "#ff6b6b",
-    "#b197fc",
-    "#e599f7",
-    "#f783ac",
-    "#ced4da",
-    "#e9ff70",
-    "#63e6be"
+    "#fcc30b",
+    "#0468b1",
+    "#fd6925",
+    "#c5192d",
+    "#3f7e44",
+    "#19486a",
+    "#fd9d24",
+    "#dd1367",
+    "#4c9f38",
+    "#0a97d9"
   ],
   "label": {
     "overflow": "truncate",

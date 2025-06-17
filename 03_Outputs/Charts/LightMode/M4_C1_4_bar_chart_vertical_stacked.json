@@ -1,6 +1,6 @@
 {
   "textStyle": {
-    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontFamily": "Proxima Nova, sans-serif",
     "fontSize": 12,
     "fontWeight": "normal"
   },
@@ -27,16 +27,16 @@
   },
   "backgroundColor": "transparent",
   "color": [
-    "#1f77b4",
-    "#ff7f0e",
-    "#2ca02c",
-    "#d62728",
-    "#9467bd",
-    "#8c564b",
-    "#e377c2",
-    "#7f7f7f",
-    "#bcbd22",
-    "#17becf"
+    "#fcc30b",
+    "#0468b1",
+    "#fd6925",
+    "#c5192d",
+    "#3f7e44",
+    "#19486a",
+    "#fd9d24",
+    "#dd1367",
+    "#4c9f38",
+    "#0a97d9"
   ],
   "xAxis": {
     "axisLine": {
@@ -70,16 +70,16 @@
       "China-2024",
       "USA-2019",
       "USA-2024",
-      "European Union-2019",
-      "European Union-2024",
-      "Indian-2019",
-      "Indian-2024",
-      "Latin America-2019",
-      "Latin America-2024",
-      "Southeast Asia-2019",
-      "Southeast Asia-2024",
-      "Africa-2019",
-      "Africa-2024"
+      "European\nUnion-2019",
+      "European\nUnion-2024",
+      "Indian-201\n9",
+      "Indian-202\n4",
+      "Latin\nAmerica-2019",
+      "Latin\nAmerica-2024",
+      "Southeast\nAsia-2019",
+      "Southeast\nAsia-2024",
+      "Africa-201\n9",
+      "Africa-202\n4"
     ],
     "name": "Category"
   },
@@ -273,5 +273,8 @@
         1
       ]
     }
-  ]
+  ],
+  "grid": {
+    "bottom": 60
+  }
 }

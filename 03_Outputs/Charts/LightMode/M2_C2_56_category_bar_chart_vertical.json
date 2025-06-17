@@ -1,6 +1,6 @@
 {
   "textStyle": {
-    "fontFamily": "Roboto, Arial, sans-serif",
+    "fontFamily": "Proxima Nova, sans-serif",
     "fontSize": 12,
     "fontWeight": "normal"
   },
@@ -27,16 +27,16 @@
   },
   "backgroundColor": "transparent",
   "color": [
-    "#1f77b4",
-    "#ff7f0e",
-    "#2ca02c",
-    "#d62728",
-    "#9467bd",
-    "#8c564b",
-    "#e377c2",
-    "#7f7f7f",
-    "#bcbd22",
-    "#17becf"
+    "#fcc30b",
+    "#0468b1",
+    "#fd6925",
+    "#c5192d",
+    "#3f7e44",
+    "#19486a",
+    "#fd9d24",
+    "#dd1367",
+    "#4c9f38",
+    "#0a97d9"
   ],
   "xAxis": {
     "axisLine": {
@@ -66,14 +66,14 @@
     },
     "type": "category",
     "data": [
-      "Asia Pacific",
+      "Asia\nPacific",
       "Africa",
-      "Central and South America",
+      "Central\nand South\nAmerica",
       "Eurasia",
       "Europe",
-      "North America",
-      "Middle East",
-      "World average"
+      "North\nAmerica",
+      "Middle\nEast",
+      "World\naverage"
     ],
     "name": "Region"
   },
@@ -178,5 +178,8 @@
         37
       ]
     }
-  ]
+  ],
+  "grid": {
+    "bottom": 80
+  }
 }
