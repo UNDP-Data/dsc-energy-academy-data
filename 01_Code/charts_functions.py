@@ -3,6 +3,8 @@ import pandas as pd
 from pathlib import Path
 import json
 import ast
+import shutil
+import os
 
 
 def extract_dataset(in_dir):
@@ -144,22 +146,41 @@ def merge_data_metadata(metadata_df, chart_datasets):
         for fid in added_ids:
             print(f" - {fid}")
 
+    # === 📌 New Section: Category-based percentages for ALL charts ===
+    print("\n📈 Percentage breakdown (from ALL charts):")
+
+    def pct(n):
+        return round((n / total_charts) * 100, 2) if total_charts else 0
+
+    recreate = metadata_df[metadata_df["Category"] == "Chart to recreate"]
+    recreate_ap_no = metadata_df[
+        (metadata_df["Category"] == "Chart to recreate") &
+        (metadata_df["Apache Possible"] != "Yes")
+    ]
+    recreate_ap_yes_auto_no = metadata_df[
+        (metadata_df["Category"] == "Chart to recreate") &
+        (metadata_df["Apache Possible"] == "Yes") &
+        (metadata_df["Automation Possible"] != "Yes")
+    ]
+    recreate_ap_yes_auto_yes = metadata_df[
+        (metadata_df["Category"] == "Chart to recreate") &
+        (metadata_df["Apache Possible"] == "Yes") &
+        (metadata_df["Automation Possible"] == "Yes")
+    ]
+
+    print(f" - Ready to Use: {pct(len(recreate))}%")
+    print(f" - Recreate & Apache = No: {pct(len(recreate_ap_no))}%")
+    print(f" - Recreate & Apache = Yes & Automation = No: {pct(len(recreate_ap_yes_auto_no))}%")
+    print(f" - Recreate & Apache = Yes & Automation = Yes: {pct(len(recreate_ap_yes_auto_yes))}%")
+
     return charts
 
 
 
 
-def wrap_label(label: str, max_chars: int = 10) -> str:
-    """
-    Heuristically wraps a label string with line breaks to avoid overflow.
 
-    Args:
-        label (str): The label text to wrap.
-        max_chars (int): Maximum characters per line.
+def wrap_label(label: str, max_chars: int = 20) -> str:
 
-    Returns:
-        str: The wrapped label with '\n' line breaks.
-    """
     label = str(label)  # Ensure it's a string
     if len(label) <= max_chars:
         return label
@@ -228,7 +249,7 @@ def merge_templates(global_template, specific_template):
     deep_merge(merged, specific_template)
     return merged
 
-def generate_chart(chart_id, metadata, dataset_str, template_path, output_dir, prepare_data_fn, suffix, global_template_path=None):
+def generate_chart(chart_id, metadata, dataset_str, template_path, output_dir, prepare_data_fn, global_template_path=None):
     print(f"Generating chart for {chart_id}...")
     print(f"Title: {metadata.get('Title')}")
 
@@ -255,7 +276,7 @@ def generate_chart(chart_id, metadata, dataset_str, template_path, output_dir, p
         print(f"Error preparing chart data for {chart_id}: {e}")
         return
 
-    save_chart_config(output_dir, f"{chart_id}_{suffix}.json", chart_template)
+    save_chart_config(output_dir, f"{chart_id}.json", chart_template)
 
 
 def common_prepare_data_wrapper(metadata, specific_prepare_fn):
@@ -303,7 +324,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
                     
                     template["xAxis"]["data"] = wrapped_labels
-                    template["xAxis"]["name"] = x_col
+                    template["xAxis"]["name"] = wrap_label(x_col)  
                     template["yAxis"]["name"] = y_col
                     template["series"][0]["data"] = df[y_col].tolist()
                     
@@ -311,7 +332,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_vertical", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for bar chart vertical: {chart_id}")
 
@@ -324,17 +345,20 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                 def specific_prepare(template, df):
                     if x_col not in df.columns or y_col not in df.columns:
                         raise ValueError(f"Missing columns: {x_col}, {y_col}")
-                    template["yAxis"]["data"] = df[y_col].tolist()
+                    raw_labels = df[y_col].tolist()
+                    wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
+                    template["yAxis"]["data"] = wrapped_labels
                     template["yAxis"]["name"] = y_col
-                    template["xAxis"]["name"] = x_col
+                    template["xAxis"]["name"] = wrap_label(x_col)  
                     template["series"][0]["data"] = df[x_col].tolist()
+
                     
                     max_label_length = max(len(str(label)) for label in df[category_col])
                     template["grid"] = template.get("grid", {})
                     template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))  # Rough estimate
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_horizontal", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for horizontal bar chart: {chart_id}")
 
@@ -355,7 +379,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     template.pop("yAxis", None)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "pie_chart", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for pie chart: {chart_id}")
         
@@ -375,7 +399,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     template.pop("xAxis", None)
                     template.pop("yAxis", None)
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "doughnut_chart", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for doughnut chart: {chart_id}")
         
@@ -395,19 +419,23 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     for col in series_cols:
                         if col not in df.columns:
                             raise ValueError(f"Missing series column: {col}")
-                    template["yAxis"]["data"] = df[category_col].tolist()
-                    template["yAxis"]["name"] = category_col
+                    raw_labels = df[category_col].tolist()
+                    wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
+                    template["yAxis"]["data"] = wrapped_labels
+                    template["xAxis"]["name"] = wrap_label(category_col)  
                     template["xAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {"name": col, "type": "bar", "data": df[col].tolist()}
                         for col in series_cols
                     ]
+
+                    
                     max_label_length = max(len(str(label)) for label in df[category_col])
                     template["grid"] = template.get("grid", {})
                     template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))  # Rough estimate
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "category_bar_chart_horizontal", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for bar chart categories horizontal: {chart_id}")
 
@@ -432,18 +460,20 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
                     
                     template["xAxis"]["data"] = wrapped_labels #df[category_col].tolist()
-                    template["xAxis"]["name"] = category_col
+                    template["xAxis"]["name"] = wrap_label(category_col)  
                     template["yAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {"name": col, "type": "bar", "data": df[col].tolist()}
                         for col in series_cols
                     ]
                     
+
+
                     max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
                     template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
                 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "category_bar_chart_vertical", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for bar chart categories vertical: {chart_id}")
 
@@ -468,7 +498,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
 
                     template["xAxis"]["data"] = wrapped_labels
-                    template["xAxis"]["name"] = category_col
+                    template["xAxis"]["name"] = wrap_label(category_col)
                     template["yAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {
@@ -480,12 +510,12 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         }
                         for col in series_cols
                     ]
-
+                    
                     max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
                     template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
                 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_vertical_stacked", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for vertical stacked bar chart: {chart_id}")
 
@@ -512,7 +542,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
 
                     template["xAxis"]["data"] = wrapped_labels
-                    template["xAxis"]["name"] = category_col
+                    template["xAxis"]["name"] = wrap_label(category_col)  
                     template["yAxis"]["name"] = series_cols_unit
 
                     # Normalize values
@@ -529,10 +559,12 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         }
                         for col, data in zip(series_cols, normalized_data)
                     ]
+
+
                     max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
                     template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_vertical_normalized_stacked", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for normalized vertical stacked bar chart: {chart_id}")
 
@@ -552,9 +584,11 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     for col in series_cols:
                         if col not in df.columns:
                             raise ValueError(f"Missing series column: {col}")
-                    template["yAxis"]["data"] = df[category_col].tolist()
+                    raw_labels = df[category_col].tolist()
+                    wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
+                    template["yAxis"]["data"] = wrapped_labels
                     template["yAxis"]["name"] = category_col
-                    template["xAxis"]["name"] = series_cols_unit
+                    template["xAxis"]["name"] = wrap_label(series_cols_unit) 
                     template["series"] = [
                         {
                             "name": col,
@@ -571,7 +605,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "bar_chart_horizontal_stacked", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for horizontal stacked bar chart: {chart_id}")
 
@@ -585,11 +619,11 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     if x_col not in df.columns or y_col not in df.columns:
                         raise ValueError(f"Missing columns: {x_col}, {y_col}")
                     template["series"][0]["data"] = df[[x_col, y_col]].values.tolist()
-                    template["xAxis"]["name"] = x_col
+                    template["xAxis"]["name"] = wrap_label(x_col)
                     template["yAxis"]["name"] = y_col
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "scatter_chart", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for scatter chart: {chart_id}")
 
@@ -610,7 +644,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     if use_tooltip and tooltip_col not in df.columns:
                         raise ValueError(f"Missing column: {tooltip_col}")
 
-                    template["xAxis"]["name"] = x_col
+                    template["xAxis"]["name"] = wrap_label(x_col)
                     template["yAxis"]["name"] = y_col
                     prototype_series = template["series"][0]
                     grouped = df.groupby(category_col)
@@ -636,7 +670,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         template["series"].append(series_entry)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "scatter_categories", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for scatter chart categories: {chart_id}")
 
@@ -653,11 +687,11 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     template["xAxis"]["data"] = df[x_col].tolist()
                     template["series"][0]["data"] = df[y_col].tolist()
                     template["series"][0]["name"] = y_col
-                    template["xAxis"]["name"] = x_col
+                    template["xAxis"]["name"] = wrap_label(x_col)
                     template["yAxis"]["name"] = y_col
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "line_chart", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for line chart: {chart_id}")
 
@@ -679,6 +713,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         if col not in df.columns:
                             raise ValueError(f"Missing y column: {col}")
                     template["xAxis"]["data"] = df[x_col].tolist()
+                    template["xAxis"]["name"] = wrap_label(x_col)
                     template["series"] = [
                         {
                             "type": "line",
@@ -687,11 +722,9 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         }
                         for col in y_cols
                     ]
-                    template["xAxis"]["name"] = x_col
                     template["yAxis"]["name"] = series_cols_unit
-
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "line_chart_multi", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for multi-line chart: {chart_id}")
 
@@ -714,6 +747,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                             raise ValueError(f"Missing series column: {col}")
                     template["xAxis"]["data"] = df[x_col].tolist()
                     template["yAxis"]["name"] = series_cols_unit
+                    template["xAxis"]["name"] = wrap_label(x_col)
                     template["series"] = [
                         {
                             "name": col,
@@ -723,9 +757,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         }
                         for col in series_cols
                     ]
-
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
-                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, "line_chart_stacked", global_template_path)
+                generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
                 print(f"Missing styling for stacked line chart: {chart_id}")
 
@@ -783,3 +816,17 @@ def load_json_file(filepath):
         print(f"Error decoding JSON: {e}")
     
     return None  # Return None if an error occurred
+
+def copy_directory_contents(src_dir, dst_dir):
+    if not os.path.exists(src_dir):
+        print(f"Source directory does not exist: {src_dir}")
+        return
+    os.makedirs(dst_dir, exist_ok=True)
+
+    for item in os.listdir(src_dir):
+        s = os.path.join(src_dir, item)
+        d = os.path.join(dst_dir, item)
+        if os.path.isdir(s):
+            shutil.copytree(s, d, dirs_exist_ok=True)
+        else:
+            shutil.copy2(s, d)
