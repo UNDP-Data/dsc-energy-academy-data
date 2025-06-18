@@ -1,0 +1,187 @@
+{
+  "textStyle": {
+    "fontFamily": "Proxima Nova, sans-serif",
+    "fontSize": 12,
+    "fontWeight": "normal",
+    "color": "#DDDDDD"
+  },
+  "axisLabel": {
+    "fontSize": 12,
+    "color": "#AAAAAA"
+  },
+  "legend": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#CCCCCC"
+    },
+    "orient": "horizontal",
+    "top": "bottom",
+    "type": "scroll"
+  },
+  "tooltip": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#FFFFFF"
+    },
+    "backgroundColor": "rgba(30, 30, 30, 0.85)",
+    "borderColor": "#555555",
+    "formatter": null
+  },
+  "backgroundColor": "#1e1e1e",
+  "color": [
+    "#fcc30b",
+    "#0468b1",
+    "#fd6925",
+    "#c5192d",
+    "#3f7e44",
+    "#19486a",
+    "#fd9d24",
+    "#dd1367",
+    "#4c9f38",
+    "#0a97d9"
+  ],
+  "xAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#888888",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dashed",
+        "color": "#444444",
+        "opacity": 0.3
+      }
+    },
+    "axisLabel": {
+      "color": "#AAAAAA",
+      "fontSize": 12,
+      "interval": 0
+    },
+    "nameTextStyle": {
+      "color": "#CCCCCC",
+      "fontSize": 14
+    },
+    "type": "category",
+    "data": [
+      "Asia Pacific",
+      "Africa",
+      "Central and South\nAmerica",
+      "Eurasia",
+      "Europe",
+      "North America",
+      "Middle East",
+      "World average"
+    ],
+    "name": "Region"
+  },
+  "yAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#888888",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dotted",
+        "color": "#444444",
+        "opacity": 0.3
+      }
+    },
+    "axisLabel": {
+      "color": "#AAAAAA",
+      "fontSize": 12
+    },
+    "nameTextStyle": {
+      "color": "#CCCCCC",
+      "fontSize": 14
+    },
+    "type": "value",
+    "name": "ADD UNIT"
+  },
+  "label": {
+    "overflow": "truncate",
+    "ellipsis": "..."
+  },
+  "hoverLayerThreshold": 3000,
+  "tooltipTrigger": "axis",
+  "emphasis": {
+    "itemStyle": {
+      "borderWidth": 1,
+      "borderColor": "#FFFFFF"
+    }
+  },
+  "accessibility": {
+    "contrastRatioMin": 4.5,
+    "colorBlindSafe": true
+  },
+  "series": [
+    {
+      "name": "Population needing cooling (from hot climates) (%)",
+      "type": "bar",
+      "data": [
+        55,
+        55,
+        44,
+        0,
+        0,
+        9,
+        42,
+        44
+      ]
+    },
+    {
+      "name": "Additional population needing cooling (%)",
+      "type": "bar",
+      "data": [
+        43,
+        45,
+        50,
+        57,
+        83,
+        84,
+        57,
+        51
+      ]
+    },
+    {
+      "name": "AC penetration in 2000 (%)",
+      "type": "bar",
+      "data": [
+        19,
+        4,
+        15,
+        1,
+        10,
+        68,
+        18,
+        20
+      ]
+    },
+    {
+      "name": "AC penetration in 2022 (%)",
+      "type": "bar",
+      "data": [
+        47,
+        6,
+        25,
+        9,
+        19,
+        78,
+        25,
+        37
+      ]
+    }
+  ],
+  "grid": {
+    "bottom": 60
+  }
+}
