@@ -104,7 +104,7 @@
       "fontSize": 14
     },
     "type": "value",
-    "name": "ADD UNIT"
+    "name": "%"
   },
   "label": {
     "overflow": "truncate",
@@ -124,7 +124,7 @@
   },
   "series": [
     {
-      "name": "Population needing cooling (from hot climates) (%)",
+      "name": "Population needing cooling (from hot climates)",
       "type": "bar",
       "data": [
         55,
@@ -138,7 +138,7 @@
       ]
     },
     {
-      "name": "Additional population needing cooling (%)",
+      "name": "Additional population needing cooling",
       "type": "bar",
       "data": [
         43,
@@ -152,7 +152,7 @@
       ]
     },
     {
-      "name": "AC penetration in 2000 (%)",
+      "name": "AC penetration in 2000",
       "type": "bar",
       "data": [
         19,
@@ -166,7 +166,7 @@
       ]
     },
     {
-      "name": "AC penetration in 2022 (%)",
+      "name": "AC penetration in 2022",
       "type": "bar",
       "data": [
         47,

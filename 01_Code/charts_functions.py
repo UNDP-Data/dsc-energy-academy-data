@@ -311,8 +311,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
         style = charts_config.get(chart_id, {})
 
         if chart_type == "bar chart vertical":
-            x_col = style.get("X Axis")
-            y_col = style.get("Y Axis")
+            x_col = style.get("Category")
+            y_col = style.get("Value")
             if x_col and y_col:
                 template_path = Path(template_folder_path) / "bar_chart_vertical_template.json"
 
@@ -337,8 +337,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                 print(f"Missing styling for bar chart vertical: {chart_id}")
 
         elif chart_type == "bar chart horizontal":
-            x_col = style.get("X Axis")
-            y_col = style.get("Y Axis")
+            x_col = style.get("Value")
+            y_col = style.get("Category")
             if x_col and y_col:
                 template_path = Path(template_folder_path) / "bar_chart_horizontal_template.json"
 

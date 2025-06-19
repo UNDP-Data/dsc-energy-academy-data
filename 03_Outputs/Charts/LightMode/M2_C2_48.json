@@ -104,7 +104,7 @@
       "fontSize": 14
     },
     "type": "value",
-    "name": "ADD UNIT"
+    "name": "Population (millions)"
   },
   "label": {
     "overflow": "truncate",
