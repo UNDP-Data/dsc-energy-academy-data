@@ -1,0 +1,183 @@
+{
+  "textStyle": {
+    "fontFamily": "Proxima Nova, sans-serif",
+    "fontSize": 12,
+    "fontWeight": "normal",
+    "color": "#DDDDDD"
+  },
+  "axisLabel": {
+    "fontSize": 12,
+    "color": "#AAAAAA"
+  },
+  "legend": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#CCCCCC"
+    },
+    "orient": "horizontal",
+    "top": "bottom",
+    "type": "scroll"
+  },
+  "tooltip": {
+    "textStyle": {
+      "fontSize": 12,
+      "color": "#FFFFFF"
+    },
+    "backgroundColor": "rgba(30, 30, 30, 0.85)",
+    "borderColor": "#555555",
+    "formatter": null
+  },
+  "backgroundColor": "#1e1e1e",
+  "color": [
+    "#fcc30b",
+    "#0468b1",
+    "#fd6925",
+    "#c5192d",
+    "#3f7e44",
+    "#19486a",
+    "#fd9d24",
+    "#dd1367",
+    "#4c9f38",
+    "#0a97d9"
+  ],
+  "xAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#888888",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dashed",
+        "color": "#444444",
+        "opacity": 0.3
+      }
+    },
+    "axisLabel": {
+      "color": "#AAAAAA",
+      "fontSize": 12
+    },
+    "nameTextStyle": {
+      "color": "#CCCCCC",
+      "fontSize": 14
+    },
+    "type": "value",
+    "boundaryGap": [
+      0,
+      0.01
+    ],
+    "name": "Population (thousand)"
+  },
+  "yAxis": {
+    "axisLine": {
+      "show": true,
+      "lineStyle": {
+        "color": "#888888",
+        "type": "solid",
+        "width": 1
+      }
+    },
+    "splitLine": {
+      "show": true,
+      "lineStyle": {
+        "type": "dotted",
+        "color": "#444444",
+        "opacity": 0.3
+      }
+    },
+    "axisLabel": {
+      "color": "#AAAAAA",
+      "fontSize": 12
+    },
+    "nameTextStyle": {
+      "color": "#CCCCCC",
+      "fontSize": 14
+    },
+    "type": "category",
+    "data": [
+      "India ",
+      "China ",
+      "Nigeria ",
+      "Pakistan ",
+      "Bangladesh ",
+      "Brazil ",
+      "Indonesia ",
+      "Mozambique ",
+      "Angola ",
+      "Uganda "
+    ]
+  },
+  "label": {
+    "overflow": "truncate",
+    "ellipsis": "..."
+  },
+  "hoverLayerThreshold": 3000,
+  "tooltipTrigger": "axis",
+  "emphasis": {
+    "itemStyle": {
+      "borderWidth": 1,
+      "borderColor": "#FFFFFF"
+    }
+  },
+  "accessibility": {
+    "contrastRatioMin": 4.5,
+    "colorBlindSafe": true
+  },
+  "series": [
+    {
+      "name": "Rural poor",
+      "type": "bar",
+      "data": [
+        93288,
+        1077,
+        40190,
+        7721,
+        8020,
+        4263,
+        6774,
+        14662,
+        5459,
+        15407
+      ]
+    },
+    {
+      "name": "Urban poor",
+      "type": "bar",
+      "data": [
+        215893,
+        149272,
+        74692,
+        37551,
+        28742,
+        29923,
+        26811,
+        12614,
+        20325,
+        10182
+      ]
+    },
+    {
+      "name": "Total at high risk",
+      "type": "bar",
+      "data": [
+        309181,
+        150349,
+        114882,
+        45272,
+        36762,
+        34186,
+        33586,
+        27276,
+        25784,
+        25589
+      ]
+    }
+  ],
+  "grid": {
+    "left": 100
+  }
+}

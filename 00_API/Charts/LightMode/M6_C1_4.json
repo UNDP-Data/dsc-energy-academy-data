@@ -120,7 +120,7 @@
       "fontSize": 14
     },
     "type": "value",
-    "name": "ADD UNIT"
+    "name": "GtCO2 eq"
   },
   "label": {
     "overflow": "truncate",
@@ -138,11 +138,6 @@
     "contrastRatioMin": 4.5,
     "colorBlindSafe": true
   },
-  "title": {
-    "text": "",
-    "subtext": "",
-    "left": "center"
-  },
   "grid": {
     "left": "3%",
     "right": "4%",
@@ -156,9 +151,10 @@
   },
   "series": [
     {
-      "name": "Coal [GtCO2 eq]",
+      "name": "Coal",
       "type": "line",
       "stack": "Total",
+      "areaStyle": {},
       "data": [
         8.93,
         9.16,
@@ -186,9 +182,10 @@
       ]
     },
     {
-      "name": "Oil [GtCO2 eq]",
+      "name": "Oil",
       "type": "line",
       "stack": "Total",
+      "areaStyle": {},
       "data": [
         9.66,
         9.71,
@@ -216,9 +213,10 @@
       ]
     },
     {
-      "name": "Natural gas [GtCO2 eq]",
+      "name": "Natural gas",
       "type": "line",
       "stack": "Total",
+      "areaStyle": {},
       "data": [
         4.56,
         4.62,
@@ -246,9 +244,10 @@
       ]
     },
     {
-      "name": "Waste [GtCO2 eq]",
+      "name": "Waste",
       "type": "line",
       "stack": "Total",
+      "areaStyle": {},
       "data": [
         0.1,
         0.11,
@@ -276,9 +275,10 @@
       ]
     },
     {
-      "name": "Industrial processes [GtCO2 eq]",
+      "name": "Industrial processes",
       "type": "line",
       "stack": "Total",
+      "areaStyle": {},
       "data": [
         1.31,
         1.32,
@@ -306,9 +306,10 @@
       ]
     },
     {
-      "name": "Methane [GtCO2 eq]",
+      "name": "Methane",
       "type": "line",
       "stack": "Total",
+      "areaStyle": {},
       "data": [
         2.97,
         3.01,
@@ -336,9 +337,10 @@
       ]
     },
     {
-      "name": "Nitrous oxide [GtCO2 eq]",
+      "name": "Nitrous oxide",
       "type": "line",
       "stack": "Total",
+      "areaStyle": {},
       "data": [
         0.19,
         0.2,
@@ -366,9 +368,10 @@
       ]
     },
     {
-      "name": "CO2 flaring [GtCO2 eq]",
+      "name": "CO2 flaring",
       "type": "line",
       "stack": "Total",
+      "areaStyle": {},
       "data": [
         0.31,
         0.3,

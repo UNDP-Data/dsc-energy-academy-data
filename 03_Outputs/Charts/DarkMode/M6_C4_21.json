@@ -118,7 +118,7 @@
     },
     "type": "value",
     "max": 1,
-    "name": "ADD UNIT"
+    "name": "%"
   },
   "label": {
     "overflow": "truncate",
@@ -139,7 +139,7 @@
   },
   "series": [
     {
-      "name": "4Ws (%)",
+      "name": "4Ws",
       "type": "bar",
       "stack": "total",
       "label": {
@@ -171,7 +171,7 @@
       ]
     },
     {
-      "name": "3Ws (%)",
+      "name": "3Ws",
       "type": "bar",
       "stack": "total",
       "label": {
@@ -203,7 +203,7 @@
       ]
     },
     {
-      "name": "2Ws (%)",
+      "name": "2Ws",
       "type": "bar",
       "stack": "total",
       "label": {
@@ -235,7 +235,7 @@
       ]
     },
     {
-      "name": "Buses (%)",
+      "name": "Buses",
       "type": "bar",
       "stack": "total",
       "label": {

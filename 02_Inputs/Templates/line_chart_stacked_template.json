@@ -1,14 +1,6 @@
 {
-  "title": {
-    "text": "",
-    "subtext": "",
-    "left": "center"
-  },
   "tooltip": {
     "trigger": "axis"
-  },
-  "legend": {
-    "top": "bottom"
   },
   "grid": {
     "left": "3%",

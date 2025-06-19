@@ -103,7 +103,7 @@
       "fontSize": 14
     },
     "type": "value",
-    "name": "ADD UNIT"
+    "name": "BCM"
   },
   "label": {
     "overflow": "truncate",
@@ -124,7 +124,7 @@
   },
   "series": [
     {
-      "name": "2021 (BCM)",
+      "name": "2021",
       "type": "bar",
       "stack": "total",
       "emphasis": {
@@ -140,7 +140,7 @@
       ]
     },
     {
-      "name": "2030 (BCM)",
+      "name": "2030",
       "type": "bar",
       "stack": "total",
       "emphasis": {
