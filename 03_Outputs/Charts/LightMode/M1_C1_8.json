@@ -1,16 +1,16 @@
 {
   "textStyle": {
     "fontFamily": "Proxima Nova, sans-serif",
-    "fontSize": 12,
+    "fontSize": 14,
     "fontWeight": "normal"
   },
   "axisLabel": {
-    "fontSize": 12,
+    "fontSize": 14,
     "color": "#666666"
   },
   "legend": {
     "textStyle": {
-      "fontSize": 12,
+      "fontSize": 14,
       "color": "#444444"
     },
     "orient": "horizontal",
@@ -20,7 +20,7 @@
   },
   "tooltip": {
     "textStyle": {
-      "fontSize": 12,
+      "fontSize": 14,
       "color": "#FFFFFF"
     },
     "backgroundColor": "rgba(50, 50, 50, 0.85)",
@@ -28,18 +28,18 @@
     "formatter": null,
     "trigger": "item"
   },
-  "backgroundColor": "transparent",
+  "backgroundColor": "rgba(247, 247, 247, 1)",
   "color": [
-    "#fcc30b",
+    "#4c9f38",
     "#0468b1",
-    "#fd6925",
     "#c5192d",
-    "#3f7e44",
+    "#0a97d9",
+    "#fd6925",
+    "#dd1367",
     "#19486a",
     "#fd9d24",
-    "#dd1367",
-    "#4c9f38",
-    "#0a97d9"
+    "#3f7e44",
+    "#fcc30b"
   ],
   "label": {
     "overflow": "truncate",
@@ -61,7 +61,7 @@
     {
       "name": "Access From",
       "type": "pie",
-      "radius": "50%",
+      "radius": "100%",
       "data": [
         {
           "name": "Building",

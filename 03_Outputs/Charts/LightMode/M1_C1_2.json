@@ -1,16 +1,16 @@
 {
   "textStyle": {
     "fontFamily": "Proxima Nova, sans-serif",
-    "fontSize": 12,
+    "fontSize": 14,
     "fontWeight": "normal"
   },
   "axisLabel": {
-    "fontSize": 12,
+    "fontSize": 14,
     "color": "#666666"
   },
   "legend": {
     "textStyle": {
-      "fontSize": 12,
+      "fontSize": 14,
       "color": "#444444"
     },
     "orient": "horizontal",
@@ -19,24 +19,24 @@
   },
   "tooltip": {
     "textStyle": {
-      "fontSize": 12,
+      "fontSize": 14,
       "color": "#FFFFFF"
     },
     "backgroundColor": "rgba(50, 50, 50, 0.85)",
     "borderColor": "#CCCCCC",
     "formatter": null
   },
-  "backgroundColor": "transparent",
+  "backgroundColor": "rgba(247, 247, 247, 1)",
   "color": [
-    "#fcc30b",
-    "#0468b1",
-    "#fd6925",
-    "#c5192d",
     "#3f7e44",
-    "#19486a",
     "#fd9d24",
-    "#dd1367",
+    "#fcc30b",
+    "#19486a",
+    "#c5192d",
+    "#fd6925",
     "#4c9f38",
+    "#dd1367",
+    "#0468b1",
     "#0a97d9"
   ],
   "xAxis": {
@@ -53,12 +53,12 @@
       "lineStyle": {
         "type": "dashed",
         "color": "#DDDDDD",
-        "opacity": 0.5
+        "opacity": 0.7
       }
     },
     "axisLabel": {
       "color": "#666666",
-      "fontSize": 12
+      "fontSize": 14
     },
     "nameTextStyle": {
       "color": "#444444",
@@ -79,14 +79,14 @@
     "splitLine": {
       "show": true,
       "lineStyle": {
-        "type": "dotted",
+        "type": "dashed",
         "color": "#EEEEEE",
-        "opacity": 0.4
+        "opacity": 0.7
       }
     },
     "axisLabel": {
       "color": "#666666",
-      "fontSize": 12
+      "fontSize": 14
     },
     "nameTextStyle": {
       "color": "#444444",

@@ -5,7 +5,7 @@ import json
 import ast
 import shutil
 import os
-
+import random
 
 def extract_dataset(in_dir):
     input_dir = Path(in_dir)
@@ -295,7 +295,12 @@ def common_prepare_data_wrapper(metadata, specific_prepare_fn):
                 if g.get("type") == "text" and g["style"].get("text") == "":
                     g["style"]["text"] = footnote
                     break
-        '''            
+        '''           
+
+        #shuffle color palette
+        shuffled_color = random.sample(template["color"], len(template["color"]))
+        template["color"] =  shuffled_color
+
         # Chart-specific logic
         specific_prepare_fn(template, df)
     return wrapped
@@ -325,11 +330,16 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     
                     template["xAxis"]["data"] = wrapped_labels
                     template["xAxis"]["name"] = wrap_label(x_col)  
-                    template["yAxis"]["name"] = y_col
+                    template["yAxis"]["name"] = wrap_label(y_col)
                     template["series"][0]["data"] = df[y_col].tolist()
                     
+                    # Rotate x-axis labels if too many categories
+                    category_threshold = 18  
+                    if len(wrapped_labels) > category_threshold:
+                        template["xAxis"].setdefault("axisLabel", {})["rotate"] = 45
+                    
                     max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
-                    template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
+                    template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -348,14 +358,14 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     raw_labels = df[y_col].tolist()
                     wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
                     template["yAxis"]["data"] = wrapped_labels
-                    template["yAxis"]["name"] = y_col
+                    template["yAxis"]["name"] = wrap_label(y_col)
                     template["xAxis"]["name"] = wrap_label(x_col)  
                     template["series"][0]["data"] = df[x_col].tolist()
 
                     
                     max_label_length = max(len(str(label)) for label in df[category_col])
-                    template["grid"] = template.get("grid", {})
-                    template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))  # Rough estimate
+                    #template["grid"] = template.get("grid", {})
+                    #template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))  # Rough estimate
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -422,7 +432,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     raw_labels = df[category_col].tolist()
                     wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
                     template["yAxis"]["data"] = wrapped_labels
-                    template["xAxis"]["name"] = wrap_label(category_col)  
+                    template["yAxis"]["name"] = wrap_label(category_col)  
+                    template["xAxis"]["name"] = wrap_label(series_cols_unit)
                     template["xAxis"]["name"] = series_cols_unit
                     template["series"] = [
                         {"name": col, "type": "bar", "data": df[col].tolist()}
@@ -431,8 +442,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
 
                     
                     max_label_length = max(len(str(label)) for label in df[category_col])
-                    template["grid"] = template.get("grid", {})
-                    template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))  # Rough estimate
+                    #template["grid"] = template.get("grid", {})
+                    #template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))  # Rough estimate
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -461,16 +472,19 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     
                     template["xAxis"]["data"] = wrapped_labels #df[category_col].tolist()
                     template["xAxis"]["name"] = wrap_label(category_col)  
-                    template["yAxis"]["name"] = series_cols_unit
+                    template["yAxis"]["name"] = wrap_label(series_cols_unit)
                     template["series"] = [
                         {"name": col, "type": "bar", "data": df[col].tolist()}
                         for col in series_cols
                     ]
-                    
+                    # Rotate x-axis labels if too many categories
+                    category_threshold = 18  
+                    if len(wrapped_labels) > category_threshold:
+                        template["xAxis"].setdefault("axisLabel", {})["rotate"] = 45
 
 
                     max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
-                    template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
+                    template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
                 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -499,7 +513,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
 
                     template["xAxis"]["data"] = wrapped_labels
                     template["xAxis"]["name"] = wrap_label(category_col)
-                    template["yAxis"]["name"] = series_cols_unit
+                    template["yAxis"]["name"] = wrap_label(series_cols_unit)
                     template["series"] = [
                         {
                             "name": col,
@@ -510,9 +524,12 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         }
                         for col in series_cols
                     ]
-                    
+                    # Rotate x-axis labels if too many categories
+                    category_threshold = 18  
+                    if len(wrapped_labels) > category_threshold:
+                        template["xAxis"].setdefault("axisLabel", {})["rotate"] = 45
                     max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
-                    template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
+                    template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
                 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -543,7 +560,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
 
                     template["xAxis"]["data"] = wrapped_labels
                     template["xAxis"]["name"] = wrap_label(category_col)  
-                    template["yAxis"]["name"] = series_cols_unit
+                    template["yAxis"]["name"] = wrap_label(series_cols_unit)
 
                     # Normalize values
                     total_series = df[series_cols].sum(axis=1).replace(0, 1)
@@ -560,9 +577,12 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         for col, data in zip(series_cols, normalized_data)
                     ]
 
-
+                    # Rotate x-axis labels if too many categories
+                    category_threshold = 18  
+                    if len(wrapped_labels) > category_threshold:
+                        template["xAxis"].setdefault("axisLabel", {})["rotate"] = 45
                     max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
-                    template.setdefault("grid", {})["bottom"] = 40 + 20 * (max_lines - 1)
+                    template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
@@ -587,7 +607,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     raw_labels = df[category_col].tolist()
                     wrapped_labels = [wrap_label(str(label)) for label in raw_labels]
                     template["yAxis"]["data"] = wrapped_labels
-                    template["yAxis"]["name"] = category_col
+                    template["yAxis"]["name"] = wrap_label(category_col)
                     template["xAxis"]["name"] = wrap_label(series_cols_unit) 
                     template["series"] = [
                         {
@@ -601,8 +621,8 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     ]
 
                     max_label_length = max(len(str(label)) for label in df[category_col])
-                    template["grid"] = template.get("grid", {})
-                    template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))
+                    #template["grid"] = template.get("grid", {})
+                    #template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -620,7 +640,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         raise ValueError(f"Missing columns: {x_col}, {y_col}")
                     template["series"][0]["data"] = df[[x_col, y_col]].values.tolist()
                     template["xAxis"]["name"] = wrap_label(x_col)
-                    template["yAxis"]["name"] = y_col
+                    template["yAxis"]["name"] = wrap_label(y_col)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -645,7 +665,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         raise ValueError(f"Missing column: {tooltip_col}")
 
                     template["xAxis"]["name"] = wrap_label(x_col)
-                    template["yAxis"]["name"] = y_col
+                    template["yAxis"]["name"] = wrap_label(y_col)
                     prototype_series = template["series"][0]
                     grouped = df.groupby(category_col)
 
@@ -688,7 +708,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     template["series"][0]["data"] = df[y_col].tolist()
                     template["series"][0]["name"] = y_col
                     template["xAxis"]["name"] = wrap_label(x_col)
-                    template["yAxis"]["name"] = y_col
+                    template["yAxis"]["name"] = wrap_label(y_col)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -722,7 +742,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         }
                         for col in y_cols
                     ]
-                    template["yAxis"]["name"] = series_cols_unit
+                    template["yAxis"]["name"] = wrap_label(series_cols_unit)
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:
@@ -746,7 +766,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         if col not in df.columns:
                             raise ValueError(f"Missing series column: {col}")
                     template["xAxis"]["data"] = df[x_col].tolist()
-                    template["yAxis"]["name"] = series_cols_unit
+                    template["yAxis"]["name"] = wrap_label(series_cols_unit)
                     template["xAxis"]["name"] = wrap_label(x_col)
                     template["series"] = [
                         {

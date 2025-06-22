@@ -21,7 +21,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Apache Example: https://echarts.apache.org/examples/en/editor.html?c=scatter-simple",
       "module": "Module1",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "ISO Code,Country,Year,HDI,Energy use per capita (GJ),Population,Continent\nDZA,Algeria,2021,0.745,55.24,44177969,Africa\nEGY,Egypt,2021,0.731,36.39,109000000,Africa\nMAR,Morocco,2021,0.683,25.58,37076584,Africa\nZAF,South Africa,2021,0.713,82.92,59392255,Africa\nKAZ,Kazakhstan,2021,0.811,150.02,19196465,Asia\nTKM,Turkmenistan,2021,0.745,262.33,6341855,Asia\nUZB,Uzbekistan,2021,0.727,58.01,34081449,Asia\nCHN,China,2021,0.768,109.16,1430000000,Asia\nHKG,Hong Kong,2021,0.952,115.94,7494578,Asia\nJPN,Japan,2021,0.925,140.74,125000000,Asia\nKOR,South Korea,2021,0.925,245.11,51830139,Asia\nBGD,Bangladesh,2021,0.661,9.94,169000000,Asia\nIND,India,2021,0.633,25.43,1410000000,Asia\nIRN,Iran,2021,0.774,143.37,87923432,Asia\nPAK,Pakistan,2021,0.544,17.13,231000000,Asia\nLKA,Sri Lanka,2021,0.782,17.79,21773441,Asia\nIDN,Indonesia,2021,0.705,30.07,274000000,Asia\nMYS,Malaysia,2021,0.803,127.86,33573874,Asia\nPHL,Philippines,2021,0.699,17.67,114000000,Asia\nSGP,Singapore,2021,0.939,586.21,5941060,Asia\nTHA,Thailand,2021,0.8,73.05,71601103,Asia\nVNM,Viet Nam,2021,0.703,44,97468029,Asia\nAZE,Azerbaijan,2021,0.745,64.53,10312992,Asia\nCYP,Cyprus,2021,0.896,88.25,1244188,Asia\nIRQ,Iraq,2021,0.686,51.56,43533592,Asia\nISR,Israel,2021,0.919,119.62,8900059,Asia\nKWT,Kuwait,2021,0.831,401.73,4250114,Asia\nOMN,Oman,2021,0.816,287.03,4520471,Asia\nQAT,Qatar,2021,0.855,657.63,2688235,Asia\nSAU,Saudi Arabia,2021,0.875,306.28,35950396,Asia\nTUR,Turkey,2021,0.838,80.28,84775404,Asia\nARE,United Arab Emirates,2021,0.911,453.25,9365145,Asia\nBLR,Belarus,2021,0.808,117.11,9578167,Europe\nBGR,Bulgaria,2021,0.795,113.59,6885868,Europe\nCZE,Czechia,2021,0.889,156.43,10510751,Europe\nHUN,Hungary,2021,0.846,105.45,9709786,Europe\nPOL,Poland,2021,0.876,117.52,38307726,Europe\nROU,Romania,2021,0.821,73.37,19328560,Europe\nRUS,Russia,2021,0.822,214.49,145000000,Europe\nSVK,Slovakia,2021,0.848,129.99,5447622,Europe\nUKR,Ukraine,2021,0.773,76.72,43531422,Europe\nDNK,Denmark,2021,0.948,115.52,5854240,Europe\nEST,Estonia,2021,0.89,178.97,1328701,Europe\nFIN,Finland,2021,0.94,208.84,5535992,Europe\nISL,Iceland,2021,0.959,612.15,370335,Europe\nIRL,Ireland,2021,0.945,125.87,4986526,Europe\nLVA,Latvia,2021,0.863,81.4,1873919,Europe\nLTU,Lithuania,2021,0.875,93.94,2786651,Europe\nNOR,Norway,2021,0.961,374.2,5403021,Europe\nSWE,Sweden,2021,0.947,224.79,10467097,Europe\nGBR,United Kingdom,2021,0.929,105.26,67281039,Europe\nHRV,Croatia,2021,0.858,87.67,4060135,Europe\nGRC,Greece,2021,0.887,101.55,10445365,Europe\nITA,Italy,2021,0.895,105.28,59240329,Europe\nMKD,North Macedonia,2021,0.77,50.22,2103330,Europe\nPRT,Portugal,2021,0.866,94.07,10290103,Europe\nSVN,Slovenia,2021,0.918,129.87,2119410,Europe\nESP,Spain,2021,0.905,119.62,47486935,Europe\nAUT,Austria,2021,0.916,163.96,8922082,Europe\nBEL,Belgium,2021,0.937,234.36,11611419,Europe\nFRA,France,2021,0.903,143.77,64531444,Europe\nDEU,Germany,2021,0.942,150.68,83408554,Europe\nLUX,Luxembourg,2021,0.93,238.67,639321,Europe\nNLD,Netherlands,2021,0.941,202.32,17501696,Europe\nCHE,Switzerland,2021,0.962,123.22,8691406,Europe\nTTO,Trinidad and Tobago,2021,0.81,437.92,1525663,North America\nMEX,Mexico,2021,0.758,52.12,127000000,North America\nARG,Argentina,2021,0.842,75.26,45276780,South America\nBRA,Brazil,2021,0.754,58.72,214000000,South America\nCHL,Chile,2021,0.855,86.6,19493184,South America\nCOL,Colombia,2021,0.752,37.52,51516562,South America\nECU,Ecuador,2021,0.74,42.61,17797737,South America\nPER,Peru,2021,0.762,35.96,33715471,South America\nVEN,Venezuela,2021,0.691,70.77,28199867,South America\nCAN,Canada,2021,0.936,366.09,38155012,North America\nUSA,United States,2021,0.921,279.27,337000000,North America\nAUS,Australia,2021,0.951,221.81,25921089,Oceania\nNZL,New Zealand,2021,0.937,173.11,5129727,Oceania"
@@ -48,7 +47,6 @@
       "Automation Possible": "Yes",
       "Notes": "Yevgen's note\nI would add here a target of Paris Agreement on limiting the emissions, e.g. by adding a net zero point in 2050                                                                                                                                                                    Zhong: Apache Example: https://echarts.apache.org/examples/en/editor.html?c=line-simple; https://echarts.apache.org/examples/en/editor.html?c=bar-simple\n\nFrederick's Note:\nShould this plot be created as one Infographic comprised of both the line and bar chart or should two seperate charts be created. If yes, please open a new row for that.",
       "module": "Module1",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Change (Gt CO2),Total (Gt CO2)\n1899,0,\n1900,0.1,2\n1901,0.07,2\n1902,0.05,2.1\n1903,0.19,2.3\n1904,0.02,2.3\n1905,0.15,2.4\n1906,0.12,2.6\n1907,0.33,2.9\n1908,-0.11,2.8\n1909,0.11,2.9\n1910,0.14,3\n1911,0.05,3.1\n1912,0.15,3.2\n1913,0.26,3.5\n1914,-0.32,3.2\n1915,-0.04,3.1\n1916,0.25,3.4\n1917,0.16,3.5\n1918,-0.04,3.5\n1919,-0.47,3\n1920,0.49,3.5\n1921,-0.44,3.1\n1922,0.15,3.2\n1923,0.44,3.7\n1924,0.01,3.7\n1925,0.03,3.7\n1926,-0.06,3.6\n1927,0.33,4\n1928,-0.03,3.9\n1929,0.3,4.2\n1930,-0.33,3.9\n1931,-0.42,3.5\n1932,-0.35,3.1\n1933,0.16,3.3\n1934,0.28,3.6\n1935,0.17,3.8\n1936,0.36,4.1\n1937,0.3,4.4\n1938,-0.26,4.2\n1939,0.24,4.4\n1940,0.39,4.8\n1941,0.12,4.9\n1942,0.05,5\n1943,0.16,5.1\n1944,-0.02,5.1\n1945,-0.88,4.2\n1946,0.42,4.6\n1947,0.45,5.1\n1948,0.25,5.3\n1949,-0.28,5.1\n1950,0.59,5.7\n1951,0.44,6.1\n1952,0.06,6.2\n1953,0.17,6.3\n1954,0.13,6.4\n1955,0.6,7.1\n1956,0.44,7.5\n1957,0.24,7.7\n1958,0.2,7.9\n1959,0.41,8.4\n1960,0.47,8.8\n1961,0.03,8.9\n1962,0.33,9.2\n1963,0.54,9.7\n1964,0.46,10.2\n1965,0.48,10.7\n1966,0.47,11.1\n1967,0.3,11.4\n1968,0.62,12\n1969,0.79,12.8\n1970,1.02,13.9\n1971,0.28,14.1\n1972,0.68,14.8\n1973,0.85,15.7\n1974,-0.03,15.6\n1975,0.08,15.7\n1976,0.83,16.5\n1977,0.57,17.1\n1978,0.54,17.6\n1979,0.53,18.2\n1980,-0.2,18\n1981,-0.23,17.7\n1982,-0.19,17.5\n1983,0.11,17.7\n1984,0.58,18.2\n1985,0.27,18.5\n1986,0.34,18.8\n1987,0.64,19.5\n1988,0.68,20.2\n1989,0.38,20.5\n1990,0.8,21.3\n1991,0.13,21.5\n1992,0.03,21.5\n1993,0.13,21.6\n1994,0.13,21.8\n1995,0.62,22.4\n1996,0.47,22.8\n1997,0.43,23.3\n1998,0.17,23.4\n1999,0.18,23.6\n2000,0.95,24.6\n2001,0.35,24.9\n2002,0.38,25.3\n2003,1.13,26.4\n2004,1.24,27.7\n2005,1.04,28.7\n2006,1,29.7\n2007,1.16,30.9\n2008,0.22,31.1\n2009,-0.4,30.7\n2010,1.91,32.6\n2011,1.04,33.6\n2012,0.41,34\n2013,0.68,34.7\n2014,0.13,34.9\n2015,-0.14,34.7\n2016,0.09,34.8\n2017,0.57,35.4\n2018,0.93,36.3\n2019,-0.05,36.2\n2020,-1.94,34.3\n2021,2.19,36.5\n2022,0.32,36.8"
@@ -75,7 +73,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Apache Example: https://echarts.apache.org/examples/en/editor.html?c=pie-simple",
       "module": "Module1",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Sector,Unit,2021\nBuilding,MtCO2e,3054.94\nElectricity/Heat,MtCO2e,16302.19\nFugitive Emissions,MtCO2e,3232.45\nManufacturing/Construction,MtCO2e,6384.05\nOther Fuel Combustion,MtCO2e,599.07\nTransportation,MtCO2e,7835.1"
@@ -102,7 +99,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Data points prior to 2000 were manually extracted (estimates). Data points from 2000 to 2050 are from the ExxonMobil Global Outlook (2024):  https://corporate.exxonmobil.com/-/media/global/files/global-outlook/2024/global-outlook-data-2024.xlsx                                                                                                         Apache Example: https://echarts.apache.org/examples/en/editor.html?c=bar-stack",
       "module": "Module1",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,World,OECD,Non-OECD\n1800,15,,\n1820,18,,\n1840,22,,\n1860,28,,\n1880,36,,\n1900,50,,\n1920,70,,\n1940,110,,\n1950,130,,\n1960,180,,\n1970,260,,\n1980,340,,\n1990,390,,\n2000,,220,185\n2010,,224,288\n2020,,204,348\n2023,,210,376\n2025,,210,390\n2030,,206,419\n2035,,200,438\n2040,,194,450\n2050,,185,478"
@@ -129,7 +125,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Apache Example: https://echarts.apache.org/examples/en/editor.html?c=bar-y-category-stack\n\nNote Frederick: Grouped Stacked Bar Chart changed to Grouped Bar Chart in Dataset",
       "module": "Module1",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Category,2015,2021\nFinal Energy Consumption,16.7,18.7\nElectricity,22.9,28.2\nTransport,3.5,4.4\nHeat,23,23.5"
@@ -156,7 +151,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Apache Example: https://echarts.apache.org/examples/en/editor.html?c=bar-y-category\n",
       "module": "Module1",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Category,2015,2022\nDeveloping countries,155,293\nDeveloped countries,691,1073\nLeast developed countries,27,40\nLandlocked developing countries,86,103\nSmall island developing States,54,101\nWorld,250,424"
@@ -183,7 +177,6 @@
       "Automation Possible": "Yes",
       "Notes": "I've made 2 diferent Db for the combined chart, here is the second one: M1_C3_25_2",
       "module": "Module1",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Region,Electricity (USD/kWh)\nCaribbean,0.22\nCentral America,0.181\nSouthern Cone,0.099\nBrazil,0.185\nMéxico,0.075\nAndean Region,0.124"
@@ -210,7 +203,6 @@
       "Automation Possible": "Yes",
       "Notes": "I've made 2 diferent Db for the combined chart, here is the second one: M1_C3_25_2",
       "module": "Module1",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Region,Electricity (USD/kWh),Gasoline (USD/litre),Diesel (USD/litre)\nRest of the world,0.15,1.29,1.3\nCaribbean Oil Importers,0.28,1.46,1.45\nCaribbean Oil Exporters,0.04,1.04,0.94"
@@ -237,7 +229,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Region,Annual increase in population with access,Annual increase in population\nWorld,93.6,65.3\nCentral Asia and Southern Asia,40.1,20.6\nEastern Asia and South eastern Asia,10.4,5.4\nLatin America and the Caribbean,5.7,4.4\nNorthern America and Europe,-2,-2\nOceania,0.3,0.4\nSub-Saharan Africa,31.1,28.7\nWestern Asia and Northern Africa,8.3,7.8"
@@ -264,7 +255,6 @@
       "Automation Possible": "Yes",
       "Notes": "Shouldn't the dataset linked to M_C2_50 actually be linked to M_C2_47? Where does the M_C2_47 Dataset come from? It does not match the Source Data",
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,With access to electricity,Without access to electricity\n2010,3416,145\n2020,4243,117\n2022,4384,104"
@@ -291,7 +281,6 @@
       "Automation Possible": "Yes",
       "Notes": "Shouldn't the dataset linked to M_C2_50 actually be linked to M_C2_47? Where does the M_C2_47 Dataset come from? It does not match the Source Data",
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,With access to electricity,Without access to electricity\n2010,2383,886\n2020,2810,576\n2022,2848,562"
@@ -318,7 +307,6 @@
       "Automation Possible": "Yes",
       "Notes": "Shouldn't the dataset linked to M_C2_50 actually be linked to M_C2_47? Where does the M_C2_47 Dataset come from? It does not match the Source Data",
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Urban,Rural\n2010,96,73\n2020,97,83\n2022,98,84"
@@ -345,7 +333,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Region,Annual increase in population with electricity access (Urban),Annual increase in population (Urban),Annual increase in population with electricity access (Rural),Annual increase in population (Rural)\nWorld,76,70,20,8\nCentral and Southern Asia,20,17,24,2\nEastern and South eastern Asia,22,21,-13,-16\nSub-Saharan Africa,21,18,11,24\nWestern Asia and Northern Africa,6,6,2,2"
@@ -372,7 +359,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Region,Urban,Rural\nWestern Asia and Northern Africa,97,82\nSub-Saharan Africa,40,7\nOceania excluding Australia and New Zealand,45,8\nNorthern America and Europe,100,97\nLatin America and the Caribbean,94,64\nEastern Asia and South-eastern Asia,93,73\nCentral Asia and Southern Asia,90,54"
@@ -399,7 +385,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: The original data source is WHO. 2024. Global Health Observatory (Household Energy Database). Geneva: WHO. https://www.who.int/data/\ngho/data/themes/air-pollution/who-household-energy-db.     I also included the most recent data (2021 & 2022) from here: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/proportion-of-population-with-primary-reliance-on-fuels-and-technologies-for-cooking-by-fuel-type\n\nNo 1 -> Urban Chart",
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Coal,Kerosene,Charcoal,Gas,Biomass,Electricity\n2000,6.61,9.12,3.22,60.52,15.04,4.84\n2001,6.22,8.61,3.29,61.3,15.03,4.8\n2002,6,8.07,3.36,62.05,15.01,4.81\n2003,5.63,7.5,3.45,62.8,15.02,4.87\n2004,5.35,7.03,3.52,63.46,15.05,4.98\n2005,4.95,6.52,3.6,64.14,15.01,5.16\n2006,4.59,6.02,3.69,64.55,14.91,5.51\n2007,4.19,5.52,3.77,65.14,14.75,5.96\n2008,3.74,4.99,3.87,65.77,14.53,6.39\n2009,3.4,4.51,3.95,66.38,14.24,6.86\n2010,3,4.09,4.04,66.88,13.83,7.45\n2011,2.67,3.69,4.12,67.19,13.45,8.12\n2012,2.38,3.36,4.2,67.85,12.92,8.73\n2013,2.07,3.1,4.27,68.31,12.35,9.23\n2014,1.82,2.84,4.33,68.69,11.8,9.74\n2015,1.63,2.61,4.4,69.46,11.22,9.96\n2016,1.47,2.39,4.44,70.11,10.64,10.3\n2017,1.34,2.15,4.5,70.9,10.14,10.27\n2018,1.24,1.9,4.55,71.75,9.57,10.27\n2019,1.12,1.65,4.59,72.71,9.07,10.08\n2020,1.06,1.44,4.64,73.46,8.71,9.87\n2021,1.01,1.25,4.69,74.26,8.3,9.62\n2022,0.96,1.13,4.75,74.78,8.04,9.41"
@@ -426,7 +411,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: The original data source is WHO. 2024. Global Health Observatory (Household Energy Database). Geneva: WHO. https://www.who.int/data/\ngho/data/themes/air-pollution/who-household-energy-db.     I also included the most recent data (2021 & 2022) from here: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/proportion-of-population-with-primary-reliance-on-fuels-and-technologies-for-cooking-by-fuel-type\n\nNo 2 -> Rural Chart",
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Kerosene,Coal,Charcoal,Gas,Biomass,Electricity\n2000,2.67,11.7,1.71,16.24,65.61,1.26\n2001,2.48,10.76,1.68,16.61,66.54,1.3\n2002,2.32,9.88,1.66,16.88,67.14,1.38\n2003,2.14,9.08,1.66,17.06,67.82,1.46\n2004,1.98,8.08,1.66,17.48,68.5,1.6\n2005,1.84,7.16,1.68,17.95,68.96,1.76\n2006,1.72,6.23,1.69,18.55,69.25,1.93\n2007,1.6,5.38,1.71,18.99,69.46,2.14\n2008,1.47,4.76,1.74,19.7,69.27,2.44\n2009,1.36,3.98,1.76,20.43,69.02,2.77\n2010,1.25,3.4,1.78,21.37,68.36,3.16\n2011,1.12,2.86,1.82,22.44,67.5,3.58\n2012,1.04,2.42,1.86,23.6,66.37,4.02\n2013,0.98,2.1,1.89,25.1,64.76,4.54\n2014,0.92,1.87,1.94,26.51,63.18,5.02\n2015,0.87,1.65,2,28.01,61.27,5.39\n2016,0.83,1.48,2.06,29.91,59.08,5.83\n2017,0.79,1.35,2.12,31.99,56.77,6.2\n2018,0.77,1.22,2.18,34.13,54.46,6.53\n2019,0.75,1.17,2.26,36.4,52,6.67\n2020,0.71,1.1,2.34,38.78,49.43,6.79\n2021,0.7,1.02,2.43,41.04,47.06,6.88\n2022,0.68,0.97,2.53,43.27,44.52,7.02"
@@ -453,7 +437,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: The original data source is WHO. 2024. Global Health Observatory (Household Energy Database). Geneva: WHO. https://www.who.int/data/\ngho/data/themes/air-pollution/who-household-energy-db.     I also included the most recent data (2021 & 2022) from here: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/proportion-of-population-with-primary-reliance-on-fuels-and-technologies-for-cooking-by-fuel-type\n\nNo 3 -> Total Chart",
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Biomass,Charcoal,Coal,Electricity,Gas,Kerosene\n2000,44.16,2.29,9.64,2.73,35.16,5.46\n2001,44.35,2.32,8.95,2.77,35.89,5.16\n2002,44.69,2.33,8.22,2.83,36.57,4.83\n2003,44.69,2.37,7.54,2.94,37.37,4.47\n2004,44.59,2.43,6.9,3.1,38.14,4.18\n2005,44.84,2.48,6.23,3.3,38.74,3.87\n2006,44.76,2.53,5.58,3.54,39.52,3.58\n2007,44.4,2.59,4.87,3.89,40.31,3.28\n2008,44.11,2.65,4.31,4.24,41.16,3.02\n2009,43.58,2.7,3.7,4.74,42.06,2.73\n2010,42.66,2.79,3.14,5.19,43.14,2.48\n2011,41.81,2.85,2.76,5.68,44.06,2.26\n2012,40.86,2.92,2.39,6.31,44.84,2.04\n2013,39.55,2.97,2.09,6.75,46.08,1.89\n2014,38.13,3.04,1.83,7.33,47.2,1.76\n2015,36.84,3.11,1.62,7.68,48.53,1.61\n2016,35.19,3.19,1.44,8.03,50.07,1.52\n2017,33.71,3.25,1.31,8.27,51.51,1.39\n2018,31.89,3.32,1.23,8.38,53.28,1.27\n2019,30.39,3.4,1.12,8.44,54.79,1.15\n2020,28.69,3.46,1.06,8.43,56.61,1.07\n2021,27.16,3.55,1.01,8.35,58.27,0.96\n2022,25.62,3.63,0.98,8.32,59.73,0.89"
@@ -480,7 +463,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Entity,Year,Cold deaths,Heat deaths\nAfrica,2019,11.52,0.25\nAmericas,2019,5.41,0.92\nAsia,2019,8.25,0.77\nAustralia and New Zealand,2019,9.63,1.52\nCentral Asia,2019,9.72,0.68\nEast Asia,2019,10.25,0.71\nEastern Europe,2019,7.96,2.41\nEurope,2019,8.07,2.19\nLatin America and the Caribbean,2019,4.71,1.06\nNorth Africa,2019,9.17,0.56\nNorth America,2019,6.3,0.74\nNorthern Europe,2019,7.84,1.58\nOceania,2019,8.45,1.67\nSouth Asia,2019,7.43,0.91\nSouth-east Asia,2019,4.37,0.55\nSouthern Europe,2019,8.72,2.42\nSub-Saharan Africa,2019,11.85,0.2\nWest Asia,2019,9.87,0.73\nWestern Europe,2019,7.88,1.84\nWorld,2019,8.52,0.91"
@@ -507,7 +489,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: the original chart screenshot is from here: https://www.unicef.org/innocenti/cooling-dilemma-amid-climate-change",
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Region,Population needing cooling (from hot climates),Additional population needing cooling,AC penetration in 2000,AC penetration in 2022\nAsia Pacific,55,43,19,47\nAfrica,55,45,4,6\nCentral and South America,44,50,15,25\nEurasia,0,57,1,9\nEurope,0,83,10,19\nNorth America,9,84,68,78\nMiddle East,42,57,18,25\nWorld average,44,51,20,37"
@@ -534,7 +515,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: The table title is vague, consider \"Top 10 countries with rural and urban poor populations at high risk of cooling access (2023)\". The table can be directly used or redesigned in Excel.",
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Country,Rural poor,Urban poor,Total at high risk\nIndia ,93288,215893,309181\nChina ,1077,149272,150349\nNigeria ,40190,74692,114882\nPakistan ,7721,37551,45272\nBangladesh ,8020,28742,36762\nBrazil ,4263,29923,34186\nIndonesia ,6774,26811,33586\nMozambique ,14662,12614,27276\nAngola ,5459,20325,25784\nUganda ,15407,10182,25589"
@@ -561,7 +541,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: The table title is vague, consider \"Top 10 countries with rural and urban poor populations at high risk of cooling access (2023)\". The table can be directly used or redesigned in Excel.",
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Country,Proportion of total population at high risk,Share of women in total population at high risk\nIndia ,0.22,0.55\nChina ,0.11,0.49\nNigeria ,0.53,0.53\nPakistan ,0.19,0.64\nBangladesh ,0.21,0.56\nBrazil ,0.16,0.52\nIndonesia ,0.12,0.49\nMozambique ,0.83,0.52\nAngola ,0.72,0.58\nUganda ,0.54,0.51"
@@ -588,7 +567,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Sub-Saharan Africa,Latin America and the Caribbean,Central Asia and Southern Asia,Western Asia and Northern Africa,Eastern Asia and South-eastern Asia,Oceania,Northern America and Europe,Unspecified countries\n2010,1.65,4.59,1.08,2.14,0.92,0.1,0.8,\n2011,3,2.55,2.97,1.48,2.74,0.1,0.96,\n2012,1.52,2.65,2.64,1.74,1.27,0.1,1,\n2013,4.72,3.22,2.05,1.06,1.91,0.1,1.45,\n2014,2.68,6.64,1.91,1.91,2.85,0.1,2,\n2015,3.88,2.76,2.83,1.5,1.8,0.1,1.46,\n2016,9.87,5.95,4.13,3.5,3.41,0.11,3.11,\n2017,4.22,4.76,3.26,3.26,3.47,0.12,2,\n2018,4.91,2.18,2.49,2.47,3.26,0.26,1.26,\n2019,3.08,2.45,2.54,1.99,0.97,0.18,0.92,0.55\n2020,3.76,3.08,2.24,1.04,1.12,0.18,0.72,0.97\n2021,4.45,1.75,3,1.5,1.5,0.18,0.75,0.25\n2022,4.56,3.75,1.83,1.72,1.37,0.22,1.63,0.35"
@@ -615,7 +593,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,LDCs (USD bn),LLDCs (USD bn),SIDS (USD bn)\n2010,0.4,0.6,0.1\n2011,1.5,0.9,0.2\n2012,2.1,1.4,0.3\n2013,2.9,2.6,0.2\n2014,3,2.8,0.3\n2015,2.4,1.9,0.3\n2016,7.5,6,0.4\n2017,6,5.2,0.3\n2018,3,3.1,0.2\n2019,2,2.3,0.2\n2020,1.5,1.5,0.3\n2021,2,1.4,0.3\n2022,2.3,2.7,0.3"
@@ -642,7 +619,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Scenario,Grid (USD bn),Mini-grid (USD bn),Stand-alone (USD bn),Total (USD bn)\nLow Demand,115,5,35,155\nBottom-Up,120,15,40,175\nHigh Demand,140,40,75,255"
@@ -669,7 +645,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Category,Population\nNatural gas,1.68 billion\nLPG,1.48 billion\nElectricity,890 million\nBiogas & ethanol,232 million\nPeople without access,2 billion"
@@ -696,7 +671,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Solution,Share (%),Unnamed: 9\nElectricity,12,\nLPG,44,\nImproved stoves,33,\nBiogas & ethanol,11,\n,,Sp"
@@ -723,7 +697,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Period,Sub-Saharan Africa,Rest of World\n2015–2019,0.2,2.5\n2023–2030,4,4"
@@ -750,10 +723,35 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module2",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Asset Type,Share (%)\nInfrastructure,21\nEnd-use equipment,79"
+  },
+  "M2_C3_46": {
+    "metadata": {
+      "Chapter": "3",
+      "#": "46",
+      "Figure ID": "M2_C3_46",
+      "Title": "National and rural electrification rates in SIDS, 2020/2021",
+      "Screenshot": null,
+      "New Screenshot": null,
+      "Lead": "Gabriela",
+      "Source (APA)": "IRENA. (2024). Small Island States at a Crossroads: Towards equitable energy access in least-electrified countries. International Renewable Energy Agency, Abu Dhabi.",
+      "Footnote": " Sources: All from (UN, 2021), except (*), which denotes national and rural electrification rates (%) from (Energy, 2020), and (**),  which denotes rural electrification rates (%) from (Energy, 2020) or (World Bank, 2021). Country classifications based on (World Bank, 2024).\n \nNote: AIS stands for Atlantic, Indian Ocean and South China Sea.",
+      "Source Link": "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2024/Mar/IRENA_SIDS_crossroads_energy_access_2024.pdf",
+      "Dataset Link": "Module 2 - Datasets for Charts.xlsx",
+      "Chart Status": "Pending",
+      "Dataset Status": "Ready",
+      "Category": "Chart to recreate",
+      "Chart Type": "Bar Chart Categories Vertical",
+      "Apache Possible": "Yes",
+      "Apache Link": "https://echarts.apache.org/examples/en/editor.html?c=dataset-simple1",
+      "Automation Possible": "Yes",
+      "Notes": "You can combine with bar race",
+      "module": "Module2",
+      "Column1": null
+    },
+    "dataset": "Classification,Group,Country,National electrification rate,Rural electrification rate\nLow-Income Economies (USD 1 135 or less),AIS,Guinea-Bissau,36.010242085661,16.3213842333954\nLower-Middle Income Economies (USD 1 136 to USD 4 465),AIS,Cabo Verde,95.1738050900062,96.6286468032278\nLower-Middle Income Economies (USD 1 136 to USD 4 465),AIS,Comoros,88.2875543140906,82.8561452513966\nLower-Middle Income Economies (USD 1 136 to USD 4 465),AIS,São Tomé and Príncipe,78.4916201117318,73.9331160769708\nLower-Middle Income Economies (USD 1 136 to USD 4 465),Caribbean,**Haiti,47.3580074487895,3.51877715704531\nLower-Middle Income Economies (USD 1 136 to USD 4 465),Pacific,**Kiribati,92.6520794537554,94.5918684047175\nLower-Middle Income Economies (USD 1 136 to USD 4 465),Pacific,Micronesia,83.244103041589,79.3645251396647\nLower-Middle Income Economies (USD 1 136 to USD 4 465),Pacific,Papua New Guinea,21.1708566108007,14.2846058348851\nLower-Middle Income Economies (USD 1 136 to USD 4 465),Pacific,Samoa,98.0834885164494,98.0834885164494\nLower-Middle Income Economies (USD 1 136 to USD 4 465),Pacific,Solomon Islands,76.4548417132216,75.4849472377405\nLower-Middle Income Economies (USD 1 136 to USD 4 465),Pacific,Timor-Leste,100,99.9262880198634\nLower-Middle Income Economies (USD 1 136 to USD 4 465),Pacific,Vanuatu,69.9565487274984,61.1305090006207\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",AIS,Maldives,100,99.9262880198634\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",AIS,Mauritius,99.6353196772191,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,Belize,97.5985412787088,97.0166045934202\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,Cuba,100,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,Dominica,100,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,Dominican Republic ,98.1804779639975,94.6888578522656\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,*Grenada ,93.7189633767846,95.6587523277467\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,Jamaica ,100,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,*Montserrat ,100,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,Saint Lucia,100,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,Saint Vincent and the Grenadines,100,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Caribbean,Suriname,99.0533829919304,97.5985412787088\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Pacific,Fiji,92.2641216635629,86.7357231533209\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Pacific,Marshall Islands,100,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Pacific,Palau ,100,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Pacific,Tonga ,100,100\n\" Upper-Middle-Income \nEconomies \n(USD 4 466 to USD 13 845) \",Pacific,Tuvalu,99.7323091247672,99.0533829919304\nHigh-Income Economies (USD 13 846 or more),AIS,Seychelles,100,99.9262880198634\nHigh-Income Economies (USD 13 846 or more),Caribbean,Antigua & Barbuda ,99.9262880198634,100\nHigh-Income Economies (USD 13 846 or more),Caribbean,Guyana,93.1370266914959,91.2942271880819\nHigh-Income Economies (USD 13 846 or more),Pacific,Nauru,100,100\nNot Classified,Pacific,Cook Islands,99.9262880198634,99.9262880198634\nNot Classified,Pacific,Niue,99.8292985723153,99.0533829919304"
   },
   "M3_C2_7": {
     "metadata": {
@@ -777,7 +775,6 @@
       "Automation Possible": "Yes",
       "Notes": "You can combine with the animation of bar race. | User can interact with the chart at real time by clicking to reveal, zoom or highlight values | Include a trivia element beside or within the charts to engage users with content-based questions. This is meant for curiosity and reflection—not as a test or evaluation",
       "module": "Module3",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Sector,2030,2040,2050\nAgriculture,11081.3024109014,7614.53965758211,3956.69549266247\nCoal,-5065.07686932215,-6156.97064989517,-7085.08036338225\n\"Oil, gas and manufactured fuels\",-4846.69811320754,-7781.16264849755,-9842.11215932914\nOther extraction Industries,-160.239737187002,-215.090689866574,-171.209927722919\nBasic manufacturing,13353.806341719,11659.0962031213,9316.07413230841\nEngineering and transport equipment,4231.94371651526,2400.74685534591,0\nElectricity supply,1536.3309457256,3515.38842301421,4982.62069065921\nOther Utilities,-961.502453930164,-1782.9503212594,-2114.68888306545\nConstruction,562.915222940451,-1158.96588357661,0\nDistribution and retail,5854.93513746538,0,-2090.99327150787\nTransport,1652.91335458887,957.842082233357,0\n\"Hotels and catering; Communications, publishing and television\",3651.24326261097,1771.39141237674,799.871338516191\nBusiness services,1526.53675961513,4204.14086562104,8082.32262387737\nPublic and personal services,6660.58593042292,11770.9394896731,14290.5728519618"
@@ -804,10 +801,9 @@
       "Automation Possible": "Yes",
       "Notes": "User can interact with the chart at real time by clicking to reveal, zoom or highlight values |  Include a trivia element beside or within the charts to engage users with content-based questions. This is meant for curiosity and reflection—not as a test or evaluation",
       "module": "Module3",
-      "Subtitle": null,
       "Column1": null
     },
-    "dataset": "Unit,Subsector,Graphite,Copper,Cobalt,Silicon,Nickel,Zinc,Manganese,Lithium ,Others\nKilograms per vehicle,Electric car,66.2972085385878,53.1609195402292,13.067870826491003,0,39.34044882320799,0,24.904214559387015,9.099616858237994,1.0946907498629912\nKilograms per vehicle,Conventional car,0,22.3043240284619,0,0,0,0,11.152162014231003,0,1.0946907498631973"
+    "dataset": "Unit,Subsector,Graphite,Copper,Cobalt,Silicon,Nickel,Zinc,Manganese,Lithium,Others\nKilograms per vehicle,Electric car,66.2972085385878,53.1609195402292,13.067870826491003,0,39.34044882320799,0,24.904214559387015,9.099616858237994,1.0946907498629912\nKilograms per vehicle,Conventional car,0,22.3043240284619,0,0,0,0,11.152162014231003,0,1.0946907498631973"
   },
   "M3_C3_11_2": {
     "metadata": {
@@ -831,10 +827,9 @@
       "Automation Possible": "Yes",
       "Notes": "User can interact with the chart at real time by clicking to reveal, zoom or highlight values |  Include a trivia element beside or within the charts to engage users with content-based questions. This is meant for curiosity and reflection—not as a test or evaluation",
       "module": "Module3",
-      "Subtitle": null,
       "Column1": null
     },
-    "dataset": "Sector,Unit,Subsector,Graphite,Copper,Cobalt,Silicon,Nickel,Zinc,Manganese,Lithium ,Others\nPower generation,Kilograms per megawatt,Offshore wind,0,7977.79201366645,0,0,239.16292974590033,5473.414477898751,778.9878283151993,0,898.5692931881003\nPower generation,Kilograms per megawatt,Onshore wind,0,2897.28806320734,0,0,416.8268204142605,5473.41447789878,772.1546017510191,0,591.0740978004997\nPower generation,Kilograms per megawatt,Solar PV,0,2815.28934443732,0,3860.77300875507,0,0,0,0,61.49903907752014\nPower generation,Kilograms per megawatt,Coal ,0,1141.1488362161,0,720.9054025197497,307.49519538757,0,0,0,0\nPower generation,Kilograms per megawatt,Natural gas,0,1093.31625026692,0,0,47.83258594918016,0,0,0,23.916292974579846"
+    "dataset": "Sector,Unit,Subsector,Graphite,Copper,Cobalt,Silicon,Nickel,Zinc,Manganese,Lithium,Others\nPower generation,Kilograms per megawatt,Offshore wind,0,7977.79201366645,0,0,239.16292974590033,5473.414477898751,778.9878283151993,0,898.5692931881003\nPower generation,Kilograms per megawatt,Onshore wind,0,2897.28806320734,0,0,416.8268204142605,5473.41447789878,772.1546017510191,0,591.0740978004997\nPower generation,Kilograms per megawatt,Solar PV,0,2815.28934443732,0,3860.77300875507,0,0,0,0,61.49903907752014\nPower generation,Kilograms per megawatt,Coal ,0,1141.1488362161,0,720.9054025197497,307.49519538757,0,0,0,0\nPower generation,Kilograms per megawatt,Natural gas,0,1093.31625026692,0,0,47.83258594918016,0,0,0,23.916292974579846"
   },
   "M3_C3_12_1": {
     "metadata": {
@@ -858,7 +853,6 @@
       "Automation Possible": "Yes",
       "Notes": "4 different stacked bar chat on polar in just one dashboard. | User can interact with the chart at real time by clicking to reveal, zoom or highlight values | Include a trivia element beside or within the charts to engage users with content-based questions. This is meant for curiosity and reflection—not as a test or evaluation",
       "module": "Module3",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Clean energy,Other uses\n2017,12.83,43.76\n2022,73.21,130.43"
@@ -885,7 +879,6 @@
       "Automation Possible": "Yes",
       "Notes": "4 different stacked bar chat on polar in just one dashboard. | User can interact with the chart at real time by clicking to reveal, zoom or highlight values | Include a trivia element beside or within the charts to engage users with content-based questions. This is meant for curiosity and reflection—not as a test or evaluation",
       "module": "Module3",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Clean energy,Other uses\n2017,127.49,2175.3\n2022,456.77,2932.97"
@@ -912,7 +905,6 @@
       "Automation Possible": "Yes",
       "Notes": "4 different stacked bar chat on polar in just one dashboard. | User can interact with the chart at real time by clicking to reveal, zoom or highlight values | Include a trivia element beside or within the charts to engage users with content-based questions. This is meant for curiosity and reflection—not as a test or evaluation",
       "module": "Module3",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Clean energy,Other uses\n2017,16.4,99.11\n2022,68.45,171.12"
@@ -939,7 +931,6 @@
       "Automation Possible": "Yes",
       "Notes": "4 different stacked bar chat on polar in just one dashboard. | User can interact with the chart at real time by clicking to reveal, zoom or highlight values | Include a trivia element beside or within the charts to engage users with content-based questions. This is meant for curiosity and reflection—not as a test or evaluation",
       "module": "Module3",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Clean energy,Other uses\n2017,2.77,42.26\n2022,9.61,96.51"
@@ -966,10 +957,9 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Apache Example: https://echarts.apache.org/examples/en/editor.html?c=bar-stack                                                          Zhong: The original screenshot of the chart titled \"Annual global investment in renewable energy, energy efficiency, and other transition-related technologies, 2015-2022\" only shows data from 2015 to 2022 (see page 10 from https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2023/Feb/IRENA_CPI_Global_RE_finance_2023.pdf). The old chart also did not show the exact breakdown headcount of different energies. However, the new dataset contains 2023 data and shows breakdowns. Additonal link to the new data: https://www.iea.org/data-and-statistics/charts/annual-clean-energy-investment-2015-2023                                                                                                                                                                               Zhong: need to add data labels for small data points.",
       "module": "Module4",
-      "Subtitle": null,
       "Column1": null
     },
-    "dataset": "Year,Renewable power,Energy efficiency,Other end use ,Grids,Electric vehicle,Battery storage,Nuclear,Low-emission fuels and carbon capture utilisation and storage\n2015,331,271,109,325,0,2,29,7\n2016,340,304,106,336,1,3,35,7\n2017,351,287,110,326,5,3,39,7\n2018,377,264,118,317,14,5,36,6\n2019,451,292,113,300,21,5,37,7\n2020,494,278,107,296,29,7,40,7\n2021,517,349,110,308,60,10,45,8\n2022,596,391,114,332,95,21,53,15\n2023,659,377,118,331,129,37,63,26"
+    "dataset": "Year,Renewable power,Energy efficiency,Other end use,Grids,Electric vehicle,Battery storage,Nuclear,Low-emission fuels and carbon capture utilisation and storage\n2015,331,271,109,325,0,2,29,7\n2016,340,304,106,336,1,3,35,7\n2017,351,287,110,326,5,3,39,7\n2018,377,264,118,317,14,5,36,6\n2019,451,292,113,300,21,5,37,7\n2020,494,278,107,296,29,7,40,7\n2021,517,349,110,308,60,10,45,8\n2022,596,391,114,332,95,21,53,15\n2023,659,377,118,331,129,37,63,26"
   },
   "M4_C1_3": {
     "metadata": {
@@ -993,7 +983,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Apache Example: https://echarts.apache.org/examples/en/editor.html?c=bar-stack-normalization                                                                                                                                                            Zhong: The source does not privide exact breakdowns for small data points (they are extracted by ChatGPT).                                                                                                                                        Zhong: need to explain the denifition of different regions (e.g., Eurasia, Sub-Saharan Africa); need to add data labels for small data points.",
       "module": "Module4",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,East Asia and Pacific,North America (excl. Mexico),Europe,Eurasia,Latin America & Caribbean,South Asia,Sub-Saharan Africa,Others\n2013,40,14,21,2,8,3,2,10\n2014,43,14,20,1,7,4,1,10\n2015,46,13,21,1,8,4,2,5\n2016,41,19,20,1,5,4,2,8\n2017,41,16,14,1,6,5,2,17\n2018,29,23,21,1,6,3,1,16\n2019,42,21,16,1,6,6,1,7\n2020,49,15,19,1,5,5,1,5\n2021,56,15,18,0,5,3,0,3\n2022,66,12,12,0,4,3,0,3"
@@ -1020,7 +1009,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: need to add data labels for small data points.                                                                                    Zhong: Apache Example: https://echarts.apache.org/examples/en/editor.html?c=bar-stack                                                                                                                                                                                      Zhong: Exact data points can be downloaded from https://www.iea.org/data-and-statistics/charts/annual-investment-in-clean-energy-by-selected-country-and-region-2019-and-2024",
       "module": "Module4",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Country,Fossil fuels,Renewable power,Power grids and storage,Nuclear and other clean power,Energy efficiency and end-use,Low-emissions fuels\nChina-2019,197,164,81,6,120,1\nChina-2024,185,359,89,18,188,5\nUSA-2019,228,56,74,6,52,2\nUSA-2024,197,85,108,10,89,8\nEuropean Union-2019,29,54,61,7,103,1\nEuropean Union-2024,36,106,121,15,164,4\nIndian-2019,30,12,19,2,12,0\nIndian-2024,37,37,19,5,20,0\nLatin America-2019,80,22,12,0,21,2\nLatin America-2024,102,41,20,3,16,4\nSoutheast Asia-2019,77,19,11,0,6,1\nSoutheast Asia-2024,69,15,11,0,10,2\nAfrica-2019,80,9,8,0,9,0\nAfrica-2024,68,22,10,1,9,1"
@@ -1047,7 +1035,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Apache Example:  https://echarts.apache.org/examples/en/editor.html?c=line-stack                                                                                                                                                                                            Notes not from Zhong: The graph here sends the opposite message we are trying to send in this section. While RE investments have increased over time and are now exceeding fossil fuel investments, RE-share in global primary energy consumption remains marginal showing the long way we still have ahead of us to decarbonize energy systems. To send a more optimistic message we may want to focus on electricity sector figure where the share of renewable is steadily inceasing and projected to go beyond 30% before 2030                                                                                                                                                                             Zhong: The trend is unclear from 1800 to 1900.",
       "module": "Module4",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Other renewables,Biofuels,Solar,Coal,Gas,Oil,Wind,Nuclear,Hydropower,Traditional biomass\n1800,0,0,0,97,0,0,0,0,0,5556\n1810,0,0,0,128,0,0,0,0,0,5833\n1820,0,0,0,153,0,0,0,0,0,6111\n1830,0,0,0,264,0,0,0,0,0,6389\n1840,0,0,0,356,0,0,0,0,0,6944\n1850,0,0,0,569,0,0,0,0,0,7222\n1860,0,0,0,1061,0,0,0,0,0,6944\n1870,0,0,0,1642,0,6,0,0,0,6944\n1880,0,0,0,2542,0,33,0,0,0,6944\n1890,0,0,0,3856,33,89,0,0,38.88889,6667\n1900,0,0,0,5728,64,181,0,0,47.22222,6111\n1910,0,0,0,8656,142,397,0,0,91.66666,6389\n1920,0,0,0,9833,233,889,0,0,177.7778,6944\n1930,0,0,0,10125,603,1756,0,0,363.8889,7222\n1940,0,0,0,11586,875,2653,0,0,533.3333,7222\n1950,0,0,0,12603,2092,5444,0,0,925,7500\n1960,0,0,0,15442,4472,11097,0,0,1913.889,8889\n1965,55.94909,9.029861,0,16177.69,6303.82,18012.52,0,72.46935,2729.887,9162\n1966,61.73761,9.209844,0,16359.43,6868.814,19427.4,0,97.70497,2909.136,9218\n1967,62.35338,9.383716,0,16095.52,7374.058,20779.83,0,116.3552,2973.969,9274\n1968,69.03191,9.5538,0,16333.14,8044.348,22511.29,0,147.8719,3132.305,9331\n1969,72.55872,9.723981,0,16847,8833.434,24446.17,0,175.3113,3316.981,9387\n1970,80.33795,13.50149,0,17087,9614.809,26672.71,0,223.808,3473.427,9444\n1971,87.33907,13.56215,0,16986.39,10293.19,28117.91,0,311.2872,3628.942,9499\n1972,93.40202,14.82311,0,17168.23,10861.71,30331.38,0,431.7993,3798.634,9553\n1973,100.2463,14.25056,0,17683.57,11377.83,32722.14,0,578.5737,3852.995,9608\n1974,106.873,14.33472,0,17696.43,11659.86,32224.65,0,756.4818,4232.137,9663\n1975,108.1472,13.68839,0,18045.44,11659.74,31992.35,0,1049.45,4284.333,9718\n1976,120.5711,13.75119,0,18699.79,12354.14,34059.95,0,1227.712,4267.339,9774\n1977,127.2666,18.31854,0,19267.41,12759.84,35189.73,0,1528.138,4410.859,9830\n1978,135.0268,23.17877,0,19467.49,13293.95,36703.98,0.008871,1775.701,4773.711,9886\n1979,144.5155,28.02321,0,20370.58,14118.03,37182.27,0.017742,1846.825,5012.647,9943\n1980,153.7886,32.78612,0,20877.78,14236.96,35561.33,0.031048,2020.096,5120.469,10000\n1981,164.9076,29.74792,0,21158,14395.87,34295.7,0.031048,2385.643,5230.628,10106\n1982,191.2329,37.55624,0,21395.43,14469.73,33270.61,0.054704,2588.317,5325.266,10213\n1983,211.7706,49.01924,0.008871,22050.97,14703.83,33099.76,0.096974,2933.459,5552.543,10321\n1984,236.3207,57.80642,0.018662,23008.44,15902.68,33624.37,0.132342,3559.857,5740.62,10430\n1985,243.1773,68.41009,0.034737,23996.74,16262.22,33686.31,0.189898,4224.837,5852.602,10541\n1986,263.6982,84.20299,0.044898,24263.82,16421.11,34717.92,0.410523,4525.086,5931.936,10653\n1987,282.4624,85.33012,0.031353,25228.49,17281.89,35513.05,0.577727,4922.331,6012.128,10765\n1988,290.8833,89.5602,0.030149,25983.08,18088.84,36628.91,0.980478,5366.448,6204.794,10879\n1989,322.3728,95.68924,0.775391,26231.05,18888.65,37209.37,7.835361,5518.996,6172.972,10995\n1990,361.2137,106.5691,1.148347,25916.21,19481.15,37608,10.74118,5676.721,6383.013,11111\n1991,376.8413,110.6468,1.494234,25667.41,19972.84,37688.63,12.08257,5948.311,6530.634,11243\n1992,404.8131,108.7056,1.379965,25567.28,20063.48,38192.87,13.99487,5993.463,6529.961,11376\n1993,418.2673,114.3401,1.646089,25689.95,20265.48,38024.57,16.86717,6199.87,6923.256,11511\n1994,434.6814,124.1018,1.765272,25791.27,20389.61,38852.32,21.08845,6316.248,6966.385,11647\n1995,454.2899,131.0704,1.88917,25975.75,21104.49,39431.9,24.46058,6590.213,7343.352,11785\n1996,466.3644,125.7845,2.067616,26592.4,22159.25,40326.61,27.25043,6828.806,7442.194,11925\n1997,499.9769,130.0307,2.216724,26547.28,22030.39,41422.08,35.56731,6781.843,7573.902,12066\n1998,520.5851,133.384,2.400638,26380.13,22434,41583.83,47.10265,6898.552,7631.793,12209\n1999,546.1845,135.2474,2.676927,26492.46,23071.9,42266.78,62.76771,7161.052,7689.558,12414\n2000,571.5949,132.5088,3.128882,27441.49,23994.26,42983.43,92.87769,7322.683,7826.087,12500\n2001,593.6476,131.425,4.178062,27864.72,24316.83,43366.16,112.7523,7480.557,7575.298,12500\n2002,639.1652,149.3144,5.245938,28967.59,25028.29,43650.73,152.8938,7551.077,7665.178,12470\n2003,674.7164,168.931,6.533941,31511.33,25727.73,44580.05,183.5332,7350.656,7606.731,12329\n2004,729.3295,201.0801,8.554863,33689.84,26734.27,46367.14,246.7224,7635.77,8116.258,12160\n2005,790.0187,234.5083,11.97846,36190.77,27438.98,46965.55,299.5911,7607.354,8336.13,12076\n2006,841.3214,294.6079,16.37902,38073.16,28161.39,47468.77,379.8696,7653.722,8599.477,11993\n2007,913.1849,391.5707,22.07666,40233.9,29315.7,48022.76,484.9491,7450.836,8687.611,11911\n2008,976.6596,535.7167,35.6394,40786.05,30026.69,47628.99,622.1818,7381.602,9137.198,11829\n2009,1049.248,611.3272,58.8195,40189.99,29405.7,46566.07,773.0152,7232.23,9066.074,11747\n2010,1175.825,692.1412,94.09235,41988.31,31593.82,48058.23,961.4859,7373.091,9520.543,11667\n2011,1235.689,728.7748,181.2539,43940.8,32349.12,48400.32,1215.681,7021.486,9634.818,11553\n2012,1340.799,757.5906,278.3486,44061,33203.14,49164.34,1454.616,6500.369,9984.604,11441\n2013,1447.815,820.7763,377.7912,44709.24,33720.78,49654.36,1732.055,6512.807,10323.59,11330\n2014,1569.603,866.7452,534.4909,44893.17,33961.7,50011.83,1912.332,6606.008,10535.13,11220\n2015,1696.52,900.5233,689.4229,43680.5,34752.11,50977.21,2238.731,6655.106,10445.36,11111\n2016,1720.538,941.4909,879.1254,42736.86,35229.35,52060.85,2575.674,6714.155,10749.69,11111\n2017,1817.456,960.0048,1185.098,43193.28,36517.57,52978.8,3038.975,6734.279,10826.59,11111\n2018,1964.74,1039.946,1520.514,43852.79,38321.44,53521.39,3361.329,6855.408,11080.88,11111\n2019,2063.573,1119.628,1859.597,43597.16,39084.45,53618.93,3746.709,7071.782,11184.76,11111\n2020,2181.675,1070.273,2245.268,42296.68,38714.09,48745.68,4188.111,6776.866,11449.07,11111\n2021,2351.194,1131.025,2751.753,44600.08,40239.02,51530.49,4865.935,7037.07,11222.46,11111\n2022,2414.304,1193.226,3446.408,44869.12,40086.88,53226.84,5495.744,6703.874,11271.81,11111\n2023,2427.861,1317.625,4264.261,45564.93,40101.74,54564,6040.359,6824.177,11014.12,11111"
@@ -1074,7 +1061,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Apache Example: https://echarts.apache.org/examples/en/editor.html?c=bar-y-category-stack                                                                                                                 Zhong: The original data points can be extracted from https://www.iea.org/data-and-statistics/charts/minerals-used-in-electric-cars-compared-to-conventional-cars ;     The original data source is International Energy Agency (2022, p. 6), https://iea.blob.core.windows.net/assets/ffd2a83b-8c30-4e9d-980a-52b6d9a86fdc/TheRoleofCriticalMineralsinCleanEnergyTransitions.pdf\n\nCHART ALREADY EXISTS FROM DIFFERENT SOURCE IN MODULE3",
       "module": "Module4",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Category,Copper,Lithium,Nickel,Manganese,Cobalt,Graphite,Zinc,Rare earths,Others\nElectric car,53.2,8.9,39.9,24.5,13.3,66.3,0.1,0.5,0.31\nConventional car,22.3,0,0,11.2,0,0,0.1,0,0.3"
@@ -1101,7 +1087,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: need to add data lables, especially for Coal as the small amount is unreadable.",
       "module": "Module4",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Oil,Electricity,Gas,Coal\n2010,194660,154571,113330,3179\n2011,268885,157714,108192,4280\n2012,308707,155555,128287,3766\n2013,289480,139178,116644,2095\n2014,252979,132318,102867,1389\n2015,152320,130947,90930,1316\n2016,114437,153678,58103,2017\n2017,158788,140956,64680,2677\n2018,210327,182641,116536,2967\n2019,192244,155034,73368,2501\n2020,124476,77350,58642,2210\n2021,190185,221183,172693,4424\n2022,345767,446149,376559,9451\n2023,234795,216977,162516,2103"
@@ -1128,7 +1113,6 @@
       "Automation Possible": "Yes",
       "Notes": "Left Chart",
       "module": "Module4",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Billion USD\n2020,259\n2030,822\n2040,1003\n2050,799"
@@ -1155,7 +1139,6 @@
       "Automation Possible": "Yes",
       "Notes": "Right Chart",
       "module": "Module4",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Period,Renewables,Increased demand,Replacement\n2021-30,9250,25588,6417\n2031-40,13797,45352,6409\n2041-50,7134,38025,8493"
@@ -1182,7 +1165,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module6",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Sector and end use,Global greenhouse gas emission [%]\nEnergy,75.7\nAgriculture,11.7\nIndustrial Processes,6.5\nWaste,3.4\nLand Use Change and Forestry,2.7"
@@ -1209,7 +1191,6 @@
       "Automation Possible": "Yes",
       "Notes": "Dataset updated through 2022",
       "module": "Module6",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Energy,Electricity/Heat,Manufacturing/Construction,Transportation\n1990,23660.14,8653.37,3978.52,4733.71\n1991,23818.01,8796.23,3900,4772.1\n1992,23707.42,8953.47,3770.69,4880.23\n1993,23845.95,9003.81,3719.1,4923.23\n1994,23943.99,9105.35,3732.51,5021.55\n1995,24605.32,9296.41,3956.48,5159.12\n1996,25119.71,9662.55,3838.82,5369.33\n1997,25543.82,9937.03,3862.91,5447.53\n1998,25701.94,10163.84,3861,5574.08\n1999,25826.94,10226.32,3703.74,5738.55\n2000,26607.83,10628.24,3859.55,5921.01\n2001,26972.16,10886.64,3881.54,5951.44\n2002,27303.91,11072.27,3893.32,6107.43\n2003,28504.58,11691.14,4085.93,6235.61\n2004,29762.77,12076.46,4514.42,6524.11\n2005,30845.08,12451.38,4935.81,6668.92\n2006,31742.01,12955.18,5171.55,6824.66\n2007,32821.47,13518.63,5452,7038.06\n2008,33062.57,13545.46,5559.44,7044.04\n2009,32535.35,13330.54,5548.93,6903.1\n2010,34453.48,14236.95,6110.09,7197.42\n2011,35429.95,14857.74,6339.47,7314.2\n2012,35762.83,15154.39,6363.01,7374.23\n2013,36365.23,15449.07,6365.14,7565.04\n2014,36464.78,15393.11,6433.66,7691.06\n2015,36309.07,15126.68,6316.92,7929.36\n2016,36274.37,15134.08,6159.11,8085.15\n2017,36827.24,15480.49,6080.37,8281.72\n2018,37652.42,15901.34,6207.16,8478.33\n2019,37623.18,15843.06,6248.09,8497.7\n2020,35532.26,15323.08,6202.69,7283\n2021,37497.65,16447.75,6349.21,7853.2\n2022,38008.54,16688.42,6303.94,8151.42"
@@ -1236,7 +1217,6 @@
       "Automation Possible": "Yes",
       "Notes": "Like line race, but with area",
       "module": "Module6",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Coal,Oil,Natural gas,Waste,Industrial processes,Methane,Nitrous oxide,CO2 flaring\n2000,8.93,9.66,4.56,0.1,1.31,2.97,0.19,0.31\n2001,9.16,9.71,4.62,0.11,1.32,3.01,0.2,0.3\n2002,9.36,9.67,4.78,0.11,1.37,3,0.2,0.29\n2003,10.08,9.81,4.96,0.11,1.47,3.16,0.21,0.32\n2004,10.74,10.18,5.09,0.11,1.54,3.3,0.22,0.31\n2005,11.45,10.31,5.21,0.11,1.62,3.43,0.22,0.32\n2006,12.1,10.38,5.36,0.12,1.76,3.5,0.23,0.3\n2007,12.78,10.54,5.57,0.12,1.87,3.56,0.23,0.29\n2008,12.93,10.44,5.73,0.12,1.87,3.61,0.24,0.28\n2009,12.93,10.16,5.57,0.13,1.9,3.53,0.23,0.28\n2010,13.84,10.54,6.04,0.16,2.01,3.68,0.24,0.26\n2011,14.6,10.56,6.13,0.18,2.17,3.79,0.25,0.27\n2012,14.73,10.65,6.25,0.19,2.24,3.84,0.25,0.27\n2013,15.08,10.81,6.33,0.19,2.31,3.87,0.26,0.26\n2014,15.1,10.87,6.32,0.19,2.37,3.89,0.26,0.27\n2015,14.61,11.12,6.42,0.19,2.36,3.86,0.26,0.28\n2016,14.39,11.18,6.6,0.21,2.42,3.84,0.26,0.28\n2017,14.62,11.33,6.75,0.22,2.45,3.87,0.27,0.27\n2018,15.01,11.41,7.07,0.23,2.58,3.97,0.27,0.27\n2019,14.76,11.38,7.2,0.23,2.67,4.02,0.27,0.28\n2020,14.23,10.12,7.08,0.24,2.64,3.79,0.25,0.27\n2021,15.22,10.9,7.45,0.25,2.67,3.91,0.27,0.27\n2022,15.46,11.17,7.33,0.28,2.57,3.99,0.28,0.27"
@@ -1263,7 +1243,6 @@
       "Automation Possible": "Yes",
       "Notes": "You could combine with bar race, may not possible in stacked chart",
       "module": "Module6",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Fuel / Power Generation Method,2021,2030\nPower: Renewables,11.740890688258958,18.274853801169\nPower: Nuclear,107.28744939271303,128.62685560053998\nPower: Fossil fuels,189.8785425101205,171.9710601289545\nPrimary: Hydrogen,2.024291497975696,3.2801019643123936\nPrimary: Fossil fuels,22.2672064777328,21.789248762933\nPrimary: Bioenergy,37.246963562753,49.3739691108111"
@@ -1290,7 +1269,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module6",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Country Income Level,Onshore wind,Solar PV\nHigh income countries,4,4\nUpper middle income countries,7,6.5\nLower middle income countries,8.5,8.5\nLow income countries,10.5,9"
@@ -1317,7 +1295,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module6",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Residential,Non-residential,Buildings construction industry,Other construction industry,Other\n2022,20.96,8.76,3.97,3.33,62.98"
@@ -1344,7 +1321,6 @@
       "Automation Possible": "Yes",
       "Notes": null,
       "module": "Module6",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Country,4Ws,3Ws,2Ws,Buses\nMaldives,5,40,50,5\nNepal,8,10,80,2\nVietnam,9,5,85,1\nIndia,13,5,75,7\nCambodia,15,0,85,0\nEthiopia,15,25,35,25\nRwanda,30,18,30,22\nGhana,35,5,20,40\n\"Egypt, Arab Rep.\",36,8,25,31\nVanuatu,38,2,20,40\nNigeria,60,1,15,24\nUruguay,75,0,5,20\nBrazil,80,0,5,15\nJordan,82,0,8,10\nT√ºrkiye,85,0,5,10\nUkraine,88,0,4,8\nPoland,90,0,4,6\nKazakhstan,91,0,3,6\nJamaica,95,0,2,3\nTajikistan,96,0,2,2"
@@ -1371,7 +1347,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Original data source: https://www.iea.org/data-and-statistics/charts/battery-demand-by-region-2016-2022                                                                         https://www.iea.org/data-and-statistics/charts/battery-demand-by-mode-2016-2022                                                                               Apache example: https://echarts.apache.org/examples/en/editor.html?c=bar-stack",
       "module": "Module6",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,LDVs,Bus,Other\n2016,22.3,11.5,10\n2017,36.7,12.8,31.2\n2018,75.3,16.2,27.9\n2019,96.5,15.5,22.7\n2020,129.7,14.1,23.9\n2021,292.5,11.2,30.3\n2022,501.9,13,35.6"
@@ -1398,7 +1373,6 @@
       "Automation Possible": "Yes",
       "Notes": "Zhong: Original data source: https://www.iea.org/data-and-statistics/charts/battery-demand-by-region-2016-2022                                                                         https://www.iea.org/data-and-statistics/charts/battery-demand-by-mode-2016-2022                                                                               Apache example: https://echarts.apache.org/examples/en/editor.html?c=bar-stack",
       "module": "Module6",
-      "Subtitle": null,
       "Column1": null
     },
     "dataset": "Year,Europe,China,United States,Other\n2016,4.8,30.3,6.2,2.5\n2017,7.8,61,7.7,4.2\n2018,12,79.5,18.9,9\n2019,25.3,80.5,19,9.8\n2020,53,84.9,18.6,11.2\n2021,91.7,182.1,39.3,20.9\n2022,127.7,312,70.6,40.3"
