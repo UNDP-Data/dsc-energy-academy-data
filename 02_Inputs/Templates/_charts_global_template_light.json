@@ -11,14 +11,20 @@
   },
 
   "legend": {
-    "textStyle": {
-      "fontSize": 14,
-      "color": "#444444"
-    },
-    "orient": "horizontal",
-    "top": "bottom",
-    "type": "scroll"
+  "textStyle": {
+    "fontSize": 14,
+    "color": "#CCCCCC"
   },
+  "orient": "horizontal",
+  "top": "bottom",
+  "type": "scroll",
+  "pageIconColor": "#FFFFFF",
+  "pageIconInactiveColor": "#CCCCCC", 
+  "pageTextStyle": {    
+    "fontSize": 14
+  }
+},
+
 
   "tooltip": {
     "textStyle": {

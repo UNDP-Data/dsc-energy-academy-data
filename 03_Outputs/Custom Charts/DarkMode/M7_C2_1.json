@@ -130,7 +130,7 @@
   },
   "series": [
     {
-      "name": "Whiskers",
+      "name": "Min/Max",
       "type": "custom",
         "itemStyle": {
     "color": "#AAAAAA"  // This should match the stroke color you use for whiskers

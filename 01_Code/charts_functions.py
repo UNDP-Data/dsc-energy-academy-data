@@ -334,12 +334,13 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     template["series"][0]["data"] = df[y_col].tolist()
                     
                     # Rotate x-axis labels if too many categories
-                    category_threshold = 18  
+                    category_threshold = 10 
                     if len(wrapped_labels) > category_threshold:
                         template["xAxis"].setdefault("axisLabel", {})["rotate"] = 45
-                    
-                    max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
-                    template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
+                        template.setdefault("grid", {})["bottom"] = 150
+                    else:    
+                        max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
+                        template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -478,13 +479,13 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         for col in series_cols
                     ]
                     # Rotate x-axis labels if too many categories
-                    category_threshold = 18  
+                    category_threshold = 10  
                     if len(wrapped_labels) > category_threshold:
                         template["xAxis"].setdefault("axisLabel", {})["rotate"] = 45
-
-
-                    max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
-                    template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
+                        template.setdefault("grid", {})["bottom"] = 150
+                    else:    
+                        max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
+                        template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
                 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -525,11 +526,13 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                         for col in series_cols
                     ]
                     # Rotate x-axis labels if too many categories
-                    category_threshold = 18  
+                    category_threshold = 10  
                     if len(wrapped_labels) > category_threshold:
                         template["xAxis"].setdefault("axisLabel", {})["rotate"] = 45
-                    max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
-                    template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
+                        template.setdefault("grid", {})["bottom"] = 150
+                    else:    
+                        max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
+                        template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
                 
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
@@ -578,11 +581,13 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     ]
 
                     # Rotate x-axis labels if too many categories
-                    category_threshold = 18  
+                    category_threshold = 10
                     if len(wrapped_labels) > category_threshold:
                         template["xAxis"].setdefault("axisLabel", {})["rotate"] = 45
-                    max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
-                    template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
+                        template.setdefault("grid", {})["bottom"] = 150
+                    else:    
+                        max_lines = max(label.count("\n") + 1 for label in wrapped_labels)
+                        template.setdefault("grid", {})["bottom"] = 80 + 20 * (max_lines - 1)
                 prepare_data = common_prepare_data_wrapper(metadata, specific_prepare)
                 generate_chart(chart_id, metadata, dataset, template_path, output_dir, prepare_data, global_template_path)
             else:

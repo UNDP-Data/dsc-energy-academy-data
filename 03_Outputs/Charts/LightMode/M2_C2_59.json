@@ -11,11 +11,16 @@
   "legend": {
     "textStyle": {
       "fontSize": 14,
-      "color": "#444444"
+      "color": "#CCCCCC"
     },
     "orient": "horizontal",
     "top": "bottom",
-    "type": "scroll"
+    "type": "scroll",
+    "pageIconColor": "#FFFFFF",
+    "pageIconInactiveColor": "#CCCCCC",
+    "pageTextStyle": {
+      "fontSize": 14
+    }
   },
   "tooltip": {
     "textStyle": {
@@ -28,16 +33,16 @@
   },
   "backgroundColor": "rgba(247, 247, 247, 1)",
   "color": [
-    "#fd6925",
-    "#dd1367",
     "#fd9d24",
-    "#0a97d9",
     "#19486a",
-    "#3f7e44",
-    "#c5192d",
+    "#fd6925",
     "#4c9f38",
+    "#dd1367",
+    "#3f7e44",
     "#0468b1",
-    "#fcc30b"
+    "#fcc30b",
+    "#c5192d",
+    "#0a97d9"
   ],
   "xAxis": {
     "axisLine": {
@@ -59,7 +64,8 @@
     "axisLabel": {
       "color": "#666666",
       "fontSize": 14,
-      "interval": 0
+      "interval": 0,
+      "rotate": 45
     },
     "nameTextStyle": {
       "color": "#444444",
@@ -315,6 +321,6 @@
     }
   ],
   "grid": {
-    "bottom": 80
+    "bottom": 150
   }
 }
