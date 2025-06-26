@@ -15,7 +15,12 @@
     },
     "orient": "horizontal",
     "top": "bottom",
-    "type": "scroll"
+    "type": "scroll",
+    "pageIconColor": "#666666",
+    "pageIconInactiveColor": "#CCCCCC",
+    "pageTextStyle": {
+      "fontSize": 14
+    }
   },
   "tooltip": {
     "textStyle": {
@@ -28,16 +33,16 @@
   },
   "backgroundColor": "rgba(247, 247, 247, 1)",
   "color": [
-    "#0a97d9",
     "#fd6925",
     "#dd1367",
-    "#19486a",
-    "#0468b1",
-    "#fcc30b",
-    "#c5192d",
     "#4c9f38",
+    "#fcc30b",
     "#fd9d24",
-    "#3f7e44"
+    "#3f7e44",
+    "#19486a",
+    "#0a97d9",
+    "#c5192d",
+    "#0468b1"
   ],
   "xAxis": {
     "axisLine": {
@@ -101,7 +106,7 @@
       "fontSize": 14
     },
     "type": "value",
-    "name": "Population"
+    "name": "Population\n(billions)"
   },
   "label": {
     "overflow": "truncate",
@@ -112,7 +117,7 @@
   "emphasis": {
     "itemStyle": {
       "borderWidth": 1,
-      "borderColor": "#000000"
+      "borderColor": "#666666"
     }
   },
   "accessibility": {
@@ -123,11 +128,11 @@
     {
       "type": "bar",
       "data": [
-        "1.68 billion",
-        "1.48 billion",
-        "890 million",
-        "232 million",
-        "2 billion"
+        1.68,
+        1.48,
+        0.89,
+        0.23,
+        2.0
       ]
     }
   ],

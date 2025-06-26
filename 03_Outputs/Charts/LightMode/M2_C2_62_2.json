@@ -11,12 +11,12 @@
   "legend": {
     "textStyle": {
       "fontSize": 14,
-      "color": "#CCCCCC"
+      "color": "#444444"
     },
     "orient": "horizontal",
     "top": "bottom",
     "type": "scroll",
-    "pageIconColor": "#FFFFFF",
+    "pageIconColor": "#666666",
     "pageIconInactiveColor": "#CCCCCC",
     "pageTextStyle": {
       "fontSize": 14
@@ -35,16 +35,16 @@
   },
   "backgroundColor": "rgba(247, 247, 247, 1)",
   "color": [
-    "#0468b1",
-    "#fcc30b",
     "#19486a",
-    "#3f7e44",
-    "#c5192d",
     "#dd1367",
     "#4c9f38",
-    "#fd9d24",
+    "#3f7e44",
+    "#0468b1",
+    "#fd6925",
     "#0a97d9",
-    "#fd6925"
+    "#fd9d24",
+    "#c5192d",
+    "#fcc30b"
   ],
   "label": {
     "overflow": "truncate",
@@ -55,7 +55,7 @@
   "emphasis": {
     "itemStyle": {
       "borderWidth": 1,
-      "borderColor": "#000000"
+      "borderColor": "#666666"
     }
   },
   "accessibility": {

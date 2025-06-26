@@ -35,16 +35,16 @@
   },
   "backgroundColor": "rgba(28, 29, 24, 1)",
   "color": [
-    "#0a97d9",
-    "#19486a",
-    "#fcc30b",
-    "#c5192d",
-    "#4c9f38",
-    "#fd9d24",
     "#3f7e44",
-    "#0468b1",
+    "#c5192d",
+    "#19486a",
+    "#fd9d24",
+    "#fcc30b",
     "#fd6925",
-    "#dd1367"
+    "#0a97d9",
+    "#dd1367",
+    "#4c9f38",
+    "#0468b1"
   ],
   "xAxis": {
     "axisLine": {
@@ -108,7 +108,7 @@
       "fontSize": 14
     },
     "type": "value",
-    "name": "Population"
+    "name": "Population\n(billions)"
   },
   "label": {
     "overflow": "truncate",
@@ -130,11 +130,11 @@
     {
       "type": "bar",
       "data": [
-        "1.68 billion",
-        "1.48 billion",
-        "890 million",
-        "232 million",
-        "2 billion"
+        1.68,
+        1.48,
+        0.89,
+        0.23,
+        2.0
       ]
     }
   ],

@@ -309,7 +309,7 @@
       "module": "Module1",
       "Column1": null
     },
-    "dataset": "Year,High-impact,Medium-impact,Low-impact\n2020,\"0,0\",\"0,0\",\"0,0\"\n2021,\"1,3\",\"1,0\",\"0,6\"\n2022,\"2,6\",\"2,0\",\"1,3\"\n2023,\"4,0\",\"3,0\",\"2,0\"\n2024,\"5,4\",\"4,0\",\"2,7\"\n2025,\"6,8\",\"5,1\",\"3,4\"\n2026,\"8,3\",\"6,2\",\"4,1\"\n2027,\"9,9\",\"7,4\",\"4,9\"\n2028,\"11,5\",\"8,5\",\"5,6\"\n2029,\"13,2\",\"9,8\",\"6,4\"\n2030,\"14,9\",\"11,0\",\"7,2\""
+    "dataset": "Year,High-impact,Medium-impact,Low-impact\n2020,0,0,0\n2021,1.3,1,0.6\n2022,2.6,2,1.3\n2023,4,3,2\n2024,5.4,4,2.7\n2025,6.8,5.1,3.4\n2026,8.3,6.2,4.1\n2027,9.9,7.4,4.9\n2028,11.5,8.5,5.6\n2029,13.2,9.8,6.4\n2030,14.9,11,7.2"
   },
   "M1_C3_27": {
     "metadata": {
@@ -855,7 +855,7 @@
       "module": "Module2",
       "Column1": null
     },
-    "dataset": "Year,LDCs (USD bn),LLDCs (USD bn),SIDS (USD bn)\n2010,0.4,0.6,0.1\n2011,1.5,0.9,0.2\n2012,2.1,1.4,0.3\n2013,2.9,2.6,0.2\n2014,3,2.8,0.3\n2015,2.4,1.9,0.3\n2016,7.5,6,0.4\n2017,6,5.2,0.3\n2018,3,3.1,0.2\n2019,2,2.3,0.2\n2020,1.5,1.5,0.3\n2021,2,1.4,0.3\n2022,2.3,2.7,0.3"
+    "dataset": "Year,LDCs,LLDCs,SIDS\n2010,0.4,0.6,0.1\n2011,1.5,0.9,0.2\n2012,2.1,1.4,0.3\n2013,2.9,2.6,0.2\n2014,3,2.8,0.3\n2015,2.4,1.9,0.3\n2016,7.5,6,0.4\n2017,6,5.2,0.3\n2018,3,3.1,0.2\n2019,2,2.3,0.2\n2020,1.5,1.5,0.3\n2021,2,1.4,0.3\n2022,2.3,2.7,0.3"
   },
   "M2_C2_61": {
     "metadata": {
@@ -881,7 +881,7 @@
       "module": "Module2",
       "Column1": null
     },
-    "dataset": "Scenario,Grid (USD bn),Mini-grid (USD bn),Stand-alone (USD bn),Total (USD bn)\nLow Demand,115,5,35,155\nBottom-Up,120,15,40,175\nHigh Demand,140,40,75,255"
+    "dataset": "Scenario,Grid,Mini-grid,Stand-alone,Total\nLow Demand,115,5,35,155\nBottom-Up,120,15,40,175\nHigh Demand,140,40,75,255"
   },
   "M2_C2_62_1": {
     "metadata": {
@@ -907,7 +907,7 @@
       "module": "Module2",
       "Column1": null
     },
-    "dataset": "Category,Population\nNatural gas,1.68 billion\nLPG,1.48 billion\nElectricity,890 million\nBiogas & ethanol,232 million\nPeople without access,2 billion"
+    "dataset": "Category,Population (billions)\nNatural gas,1.68\nLPG,1.48\nElectricity,0.89\nBiogas & ethanol,0.23\nPeople without access,2"
   },
   "M2_C2_62_2": {
     "metadata": {

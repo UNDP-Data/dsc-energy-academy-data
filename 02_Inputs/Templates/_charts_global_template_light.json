@@ -10,22 +10,20 @@
     "color": "#666666"
   },
 
-  "legend": {
+"legend": {
   "textStyle": {
     "fontSize": 14,
-    "color": "#CCCCCC"
+    "color": "#444444"  
   },
   "orient": "horizontal",
   "top": "bottom",
   "type": "scroll",
-  "pageIconColor": "#FFFFFF",
-  "pageIconInactiveColor": "#CCCCCC", 
-  "pageTextStyle": {    
-    "fontSize": 14
+  "pageIconColor": "#666666",           
+  "pageIconInactiveColor": "#CCCCCC",    
+  "pageTextStyle": {
+    "fontSize": 14  
   }
 },
-
-
   "tooltip": {
     "textStyle": {
       "fontSize": 14,
@@ -113,7 +111,7 @@
   "emphasis": {
     "itemStyle": {
       "borderWidth": 1,
-      "borderColor": "#000000"
+      "borderColor": "#666666"
     }
   },
 
