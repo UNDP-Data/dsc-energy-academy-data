@@ -363,7 +363,7 @@ def process_charts(charts_data, charts_config, template_folder_path, output_dir,
                     template["series"][0]["data"] = df[x_col].tolist()
 
                     
-                    max_label_length = max(len(str(label)) for label in df[category_col])
+                    max_label_length = max(len(str(label)) for label in df[y_col])
                     #template["grid"] = template.get("grid", {})
                     #template["grid"]["left"] = max(100, min(300, int(max_label_length * 7)))  # Rough estimate
 

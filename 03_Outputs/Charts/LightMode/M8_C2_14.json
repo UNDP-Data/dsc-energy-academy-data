@@ -1,0 +1,87 @@
+{
+  "textStyle": {
+    "fontFamily": "Proxima Nova, sans-serif",
+    "fontSize": 14,
+    "fontWeight": "normal"
+  },
+  "axisLabel": {
+    "fontSize": 14,
+    "color": "#666666"
+  },
+  "legend": {
+    "textStyle": {
+      "fontSize": 14,
+      "color": "#444444"
+    },
+    "orient": "horizontal",
+    "top": "bottom",
+    "type": "scroll",
+    "show": false
+  },
+  "tooltip": {
+    "textStyle": {
+      "fontSize": 14,
+      "color": "#FFFFFF"
+    },
+    "backgroundColor": "rgba(50, 50, 50, 0.85)",
+    "borderColor": "#CCCCCC",
+    "formatter": null,
+    "trigger": "item"
+  },
+  "backgroundColor": "rgba(247, 247, 247, 1)",
+  "color": [
+    "#fd9d24",
+    "#4c9f38",
+    "#c5192d",
+    "#fd6925",
+    "#19486a",
+    "#dd1367",
+    "#fcc30b",
+    "#3f7e44",
+    "#0468b1",
+    "#0a97d9"
+  ],
+  "label": {
+    "overflow": "truncate",
+    "ellipsis": "..."
+  },
+  "hoverLayerThreshold": 3000,
+  "tooltipTrigger": "axis",
+  "emphasis": {
+    "itemStyle": {
+      "borderWidth": 1,
+      "borderColor": "#000000"
+    }
+  },
+  "accessibility": {
+    "contrastRatioMin": 4.5,
+    "colorBlindSafe": true
+  },
+  "series": [
+    {
+      "type": "pie",
+      "radius": [
+        "70%",
+        "100%"
+      ],
+      "data": [
+        {
+          "name": "Salinity gradient",
+          "value": 1650
+        },
+        {
+          "name": "Tidal stream",
+          "value": 1200
+        },
+        {
+          "name": "OTEC",
+          "value": 44000
+        },
+        {
+          "name": "Wave",
+          "value": 29500
+        }
+      ]
+    }
+  ]
+}

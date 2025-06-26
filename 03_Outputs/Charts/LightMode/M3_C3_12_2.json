@@ -28,16 +28,16 @@
   },
   "backgroundColor": "rgba(247, 247, 247, 1)",
   "color": [
-    "#19486a",
-    "#fcc30b",
-    "#fd9d24",
-    "#fd6925",
-    "#4c9f38",
-    "#3f7e44",
     "#0a97d9",
-    "#c5192d",
     "#0468b1",
-    "#dd1367"
+    "#fcc30b",
+    "#3f7e44",
+    "#dd1367",
+    "#fd6925",
+    "#c5192d",
+    "#4c9f38",
+    "#fd9d24",
+    "#19486a"
   ],
   "xAxis": {
     "axisLine": {
@@ -67,8 +67,9 @@
     },
     "type": "category",
     "data": [
-      "2017",
-      "2022"
+      "2024",
+      "2030",
+      "2040"
     ],
     "name": "Year"
   },
@@ -98,12 +99,11 @@
       "fontSize": 14
     },
     "type": "value",
-    "name": "kt"
+    "name": "Mt"
   },
   "label": {
     "overflow": "truncate",
-    "ellipsis": "...",
-    "show": false
+    "ellipsis": "..."
   },
   "hoverLayerThreshold": 3000,
   "tooltipTrigger": "axis",
@@ -119,27 +119,30 @@
   },
   "series": [
     {
-      "name": "Clean energy",
+      "name": "Total use",
       "type": "bar",
-      "stack": "total",
-      "emphasis": {
-        "focus": "series"
-      },
       "data": [
-        127.49,
-        456.77
+        0.2006389776357824,
+        0.460063897763576,
+        0.925239616613416
       ]
     },
     {
-      "name": "Other uses",
+      "name": "APS",
       "type": "bar",
-      "stack": "total",
-      "emphasis": {
-        "focus": "series"
-      },
       "data": [
-        2175.3,
-        2932.97
+        null,
+        "0.511182108626196",
+        "1.21022364217252"
+      ]
+    },
+    {
+      "name": "NZE",
+      "type": "bar",
+      "data": [
+        null,
+        "0.70798722044728",
+        "1.55399361022364"
       ]
     }
   ],

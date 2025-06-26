@@ -31,15 +31,15 @@
   "backgroundColor": "rgba(247, 247, 247, 1)",
   "color": [
     "#0468b1",
-    "#fcc30b",
-    "#fd9d24",
-    "#c5192d",
-    "#0a97d9",
     "#3f7e44",
     "#19486a",
+    "#fd9d24",
+    "#0a97d9",
     "#4c9f38",
+    "#fd6925",
+    "#fcc30b",
     "#dd1367",
-    "#fd6925"
+    "#c5192d"
   ],
   "label": {
     "overflow": "truncate",
